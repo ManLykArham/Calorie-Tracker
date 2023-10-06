@@ -16,19 +16,19 @@
             <div class="exerciseApi">
                 <div class="exerciseType">
                     <label for="exerciseType">Type in your exercise:</label>
-                    <input name="exerciseType" class="exerciseTypeInput" value="skiing">
+                    <input name="exerciseType" class="exerciseTypeInput" id="etID" value="skiing">
                 </div>
                 <div class="exerciseDuration">
                     <label for="exerciseDuration">Duration (mins):</label>
-                    <input name="exerciseDuration" class="exerciseDurationInput" value="60">
+                    <input name="exerciseDuration" class="exerciseDurationInput"  id="edID" value="60">
                 </div>
                 <div class="userWeight">
                     <label for="userWeight ">Weight (pounds):</label>
-                    <input name="userWeight" class="userWeightInput" value="160">
+                    <input name="userWeight" class="userWeightInput" id="uwID" value="160">
                 </div>
                 <div class="caloriesBurned">
                     <label for="caloriesBurned">Calories Burned (kcal):</label>
-                    <input name="caloriesBurned" class="caloriesBurnedInput" value="N/A">
+                    <input name="caloriesBurned" class="caloriesBurnedInput" id="cbID" value="N/A">
                 </div>
                 <div class="trackCalories">
                     <button class="trackCaloriesButton" id="trackCalBttnID" name="trackCaloriesButton">Track</button>
@@ -38,19 +38,19 @@
                 <ul class="trackedCalories">
                     <li>
                         <label for="storedExerciseType">Exercise type:</label>
-                        <input name="storedExerciseType" class="exerciseTypeInput" id="etID" value="Skiing" readonly>
+                        <input name="storedExerciseType" class="exerciseTypeInput"  value="" readonly>
                     </li>
                     <li>
                         <label for="storedExerciseDuration">Duration (mins):</label>
-                        <input name="storedExerciseDuration" class="exerciseDurationInput" id="edID" value="5" readonly>
+                        <input name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedUserWeight">Weight (pounds):</label>
-                        <input name="storedUserWeight" class="userWeightInput" id="uwID" value="180" readonly>
+                        <input name="storedUserWeight" class="userWeightInput"  value="" readonly>
                     </li>
                     <li>
                         <label for="storedCaloriesBurned">Calories Burned (kcal):</label>
-                        <input name="storedCaloriesBurned" class="caloriesBurnedInput" id="cbID" value="356" readonly>
+                        <input name="storedCaloriesBurned" class="caloriesBurnedInput"  value="" readonly>
                     </li>
                     <li>
                         <button class="trackCaloriesButton" name="deleteExercise">Delete</button>
@@ -59,19 +59,19 @@
                 <ul class="trackedCalories">
                     <li>
                         <label for="storedExerciseType">Exercise type:</label>
-                        <input name="storedExerciseType" class="exerciseTypeInput" value="Skiing" readonly>
+                        <input name="storedExerciseType" class="exerciseTypeInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedExerciseDuration">Duration (mins):</label>
-                        <input name="storedExerciseDuration" class="exerciseDurationInput" value="5" readonly>
+                        <input name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedUserWeight">Weight (pounds):</label>
-                        <input name="storedUserWeight" class="userWeightInput" value="180" readonly>
+                        <input name="storedUserWeight" class="userWeightInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedCaloriesBurned">Calories Burned (kcal):</label>
-                        <input name="storedCaloriesBurned" class="caloriesBurnedInput" value="356" readonly>
+                        <input name="storedCaloriesBurned" class="caloriesBurnedInput" value="" readonly>
                     </li>
                     <li>
                         <button class="trackCaloriesButton" name="deleteExercise">Delete</button>
