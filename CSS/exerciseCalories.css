@@ -1,20 +1,18 @@
-/* exerciseCalories.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
+h1{
+    margin-left: 25%;
+    height: 50%;
+    width: 50%;
     display: flex;
     justify-content: center;
-    /* Ensure the container takes full width */
-    min-height: 100vh;
+    align-items: center;
+    border: 1px solid blue;
 }
 
-.container {
-    max-width: 600px;
+.container2 {
+    display: grid;
+    max-width: 100%;
     /* Ensure the container takes full width */
-    width: 100%;
+    width: 75%;
     margin: 20px;
     padding: 20px;
     background-color: #ffffff;
@@ -22,13 +20,22 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.exerciseApi,
-.trackedCaloriesContainer {
+.exerciseApi {
+    margin: 7%;
     padding: 15px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
     border-radius: 8px;
     background-color: #f9f9f9;
+}
+
+.trackedCaloriesContainer {
+    margin: 7%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    height: 100%; /* Expand the second container to fill the available height */
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds the container height */
 }
 
 .exerciseType,

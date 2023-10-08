@@ -5,11 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../CSS/exerciseCalories.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/universal.css" />
     <title>Food Log</title>
 
 </head>
 
 <body>
+<nav>
+        <ul class="nav-list">
+            <li >
+                <a href="./dashboardWebPage.php"><img src="../IMG/home.png"></a>
+            </li>
+            <li>
+                <a href="./exerciseCaloriesWebPage.php"><img src="../IMG/calorie.png"></a>
+            </li>
+            <li class="selected">
+                <a href="./foodLogWebPage.php"><img src="../IMG/food.png"></a>
+            </li>
+            <li>
+                <a href="./settingWebPage.php"><img src="../IMG/setting.png"></a>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Food Log</h1>
         <form method="POST" action="../PHP/foodLog.php">

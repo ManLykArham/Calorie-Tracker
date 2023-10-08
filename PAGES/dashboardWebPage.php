@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../CSS/exerciseCalories.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/universal.css" />
-    <title>Exercise</title>
+    <title>Dashboard</title>
 
 </head>
 
 <body>
-<nav>
+    <nav>
         <ul class="nav-list">
-            <li >
+            <li class="selected">
                 <a href="./dashboardWebPage.php"><img src="../IMG/home.png"></a>
             </li>
-            <li class="selected">
+            <li>
                 <a href="./exerciseCaloriesWebPage.php"><img src="../IMG/calorie.png"></a>
             </li>
-            <li >
+            <li>
                 <a href="./foodLogWebPage.php"><img src="../IMG/food.png"></a>
             </li>
             <li>
@@ -27,8 +27,10 @@
             </li>
         </ul>
     </nav>
-    <div class="container">
-        <h1>Exercise Log</h1>
+
+
+    <div class="container2">
+        <h1>Dashboard</h1>
         <form method="POST" action="../PHP/exerciseCalories.php">
             <div class="exerciseApi">
                 <div class="exerciseType">
@@ -37,7 +39,7 @@
                 </div>
                 <div class="exerciseDuration">
                     <label for="exerciseDuration">Duration (mins):</label>
-                    <input name="exerciseDuration" class="exerciseDurationInput"  id="edID" value="60">
+                    <input name="exerciseDuration" class="exerciseDurationInput" id="edID" value="60">
                 </div>
                 <div class="userWeight">
                     <label for="userWeight ">Weight (pounds):</label>
@@ -55,7 +57,7 @@
                 <ul class="trackedCalories">
                     <li>
                         <label for="storedExerciseType">Exercise type:</label>
-                        <input name="storedExerciseType" class="exerciseTypeInput"  value="" readonly>
+                        <input name="storedExerciseType" class="exerciseTypeInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedExerciseDuration">Duration (mins):</label>
@@ -63,11 +65,11 @@
                     </li>
                     <li>
                         <label for="storedUserWeight">Weight (pounds):</label>
-                        <input name="storedUserWeight" class="userWeightInput"  value="" readonly>
+                        <input name="storedUserWeight" class="userWeightInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedCaloriesBurned">Calories Burned (kcal):</label>
-                        <input name="storedCaloriesBurned" class="caloriesBurnedInput"  value="" readonly>
+                        <input name="storedCaloriesBurned" class="caloriesBurnedInput" value="" readonly>
                     </li>
                     <li>
                         <button class="trackCaloriesButton" name="deleteExercise">Delete</button>
