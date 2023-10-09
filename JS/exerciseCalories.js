@@ -1,3 +1,4 @@
+document.getElementById('dateID').valueAsDate = new Date();
 
 function addExerciseToList(e) {
     e.preventDefault();
