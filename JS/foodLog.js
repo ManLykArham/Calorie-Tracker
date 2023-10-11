@@ -1,0 +1,1 @@
+document.getElementById('foodDateID').valueAsDate = new Date();

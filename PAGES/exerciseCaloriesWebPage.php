@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../CSS/exerciseCalories.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/Calories.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/universal.css" />
     <title>Exercise</title>
 
@@ -16,7 +16,7 @@
         <form method="POST" action="../PHP/exerciseCalories.php">
             <div class="exerciseApi">
                 <div class="exerciseType">
-                    <label for="exerciseType">Type in your exercise:</label>
+                    <label for="exerciseType">Your exercise:</label>
                     <input type="text" name="exerciseType" class="userInput" id="etID" value="skiing">
                 </div>
                 <div class="exerciseDuration">
@@ -27,9 +27,9 @@
                     <label for="userWeight ">Weight (pounds):</label>
                     <input type="text" name="userWeight" class="userInput" id="uwID" value="160">
                 </div>
-                <div class="caloriesBurned">
-                    <label for="caloriesBurned">Date:</label>
-                    <input type="date" name="dateTrack" class="userInput" id="dateID">
+                <div class="date">
+                    <label for="date">Date:</label>
+                    <input type="date" name="dateTrack" class="userInput" id="exDateID">
                 </div>
 
                 <div class="trackCaloriesbttn">
@@ -89,7 +89,7 @@
                     <li class="navBarImg">
                         <a href="./dashboardWebPage.php"><img src="../IMG/home.png"></a>
                     </li>
-                    <li class="navBarImg">
+                    <li class="navBarImg selected">
                         <a href="./exerciseCaloriesWebPage.php"><img src="../IMG/calorie.png"></a>
                     </li>
                     <li class="navBarImg">

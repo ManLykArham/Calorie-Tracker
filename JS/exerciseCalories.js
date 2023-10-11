@@ -1,4 +1,4 @@
-document.getElementById('dateID').valueAsDate = new Date();
+document.getElementById('exDateID').valueAsDate = new Date();
 
 function addExerciseToList(e) {
     e.preventDefault();

@@ -1,0 +1,110 @@
+.container {
+    position: center;
+    /*Main Container settings*/
+    max-width: 100vw;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+    margin: auto;
+    border: 1px solid red;
+    border-radius: 8px;
+    /*Orgniszing all sub-containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*CSSing the inputs*/
+input[type=text], input[type=date] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.exerciseApi {
+    width: 65vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid rgb(60, 84, 4);
+    border-radius: 8px;
+}
+
+.exerciseType,
+.exerciseDuration,
+.userWeight,
+.date,
+.trackCalories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 15px;
+
+}
+
+.trackCaloriesButton {
+    background-color: #777474;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.3s;
+}
+
+.trackCaloriesButton:hover {
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    border-color: white;
+}
+
+.trackedCaloriesContainer {
+    width: 65vw;
+    height: 37vh;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid rgb(55, 0, 255);
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+.navBar {
+    width: 65vw;
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    border: 1px solid rgb(255, 0, 195);
+    border-radius: 8px;
+    list-style: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.navBarImg:hover {
+    background-color: #d4d2d2;
+}
+
+.selected {
+    background-color: rgb(124, 180, 212, 0.5);
+}
+
+

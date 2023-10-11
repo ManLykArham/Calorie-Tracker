@@ -15,8 +15,7 @@
     flex-direction: column;
 }
 
-/*CSSing the inputs*/
-input[type=text] {
+input[type=text]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px;
@@ -26,64 +25,25 @@ input[type=text] {
     box-sizing: border-box;
 }
 
-.exerciseApi {
+.calDetails {
+    border: 1px solid rgb(17, 0, 255);
     width: 65vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 45vh;
     margin: 20px;
-    padding: 20px;
-    border: 1px solid rgb(60, 84, 4);
-    border-radius: 8px;
-}
-
-.exerciseType,
-.exerciseDuration,
-.userWeight,
-.caloriesBurned,
-.trackCalories {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 15px;
-
 }
 
-.trackCaloriesButton {
-    background-color: #777474;
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 8px;
-    color: white;
-    padding: 15px 32px;
+.calIn {
     text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.3s;
-}
-
-.trackCaloriesButton:hover {
-    cursor: grab;
-    background-color: rgb(0, 0, 0);
-    border-color: white;
-}
-
-.trackedCaloriesContainer {
-    width: 65vw;
-    height: 37vh;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
-    grid-gap: 1rem;
     margin: 20px;
-    padding: 20px;
-    border: 1px solid rgb(55, 0, 255);
-    border-radius: 8px;
-    overflow-y: auto;
 }
 
-
+.calOut {
+    text-align: center;
+    margin: 20px;
+}
 
 .navBar {
     width: 65vw;
@@ -105,4 +65,6 @@ ul {
     background-color: #d4d2d2;
 }
 
-
+.selected {
+    background-color: rgb(124, 180, 212, 0.5);
+}
