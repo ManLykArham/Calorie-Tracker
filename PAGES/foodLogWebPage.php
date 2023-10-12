@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../CSS/Calories.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/Calories.css" /> <!-- Helps when CSS isn't working due to cache -->
     <link rel="stylesheet" type="text/css" href="../CSS/universal.css" />
     <title>Food Log</title>
 

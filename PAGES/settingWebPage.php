@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../CSS/setting.css" />
-    <link rel="stylesheet" type="text/css" href="../CSS/universal.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/setting.css?<?php echo time(); ?>" /> <!-- Helps when CSS isn't working due to cache -->
+    <link rel="stylesheet" type="text/css" href="../CSS/universal.css?<?php echo time(); ?>" />
     <title>Setting</title>
 
 </head>
