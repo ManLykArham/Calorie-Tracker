@@ -17,15 +17,16 @@
             <div class="exerciseApi">
                 <div class="exerciseType">
                     <label for="exerciseType">Food name:</label>
-                    <input type="text" name="foodName" class="userInput"  value="brisket and fries">
+                    <input type="text" name="foodName" class="userInput" value="brisket and fries">
                 </div>
                 <div class="userWeight">
                     <label for="userWeight ">Amount (grams):</label>
-                    <input type="text" name="foodAmount" class="userInput"  value="100g">
+                    <input type="text" name="foodAmount" class="userInput" value="100g">
                 </div>
                 <div class="date">
                     <label for="date">Date:</label>
-                    <input type="date" name="dateTrack" class="userInput" id="foodDateID">                </div>
+                    <input type="date" name="dateTrack" class="userInput" id="foodDateID">
+                </div>
                 <div class="trackCalories">
                     <button class="trackCaloriesButton" name="trackFoodButton">Track</button>
                 </div>

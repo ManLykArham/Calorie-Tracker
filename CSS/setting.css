@@ -5,7 +5,7 @@
     max-height: 100vh;
     width: auto;
     height: auto;
-    margin: auto;
+    margin: 20px;
     border: 1px solid red;
     border-radius: 8px;
     /*Orgniszing all sub-containers*/
@@ -76,7 +76,7 @@ button:hover {
 }
 
 .logBttn:hover {
-    background-color:#2a99cc;
+    background-color: #2a99cc;
     border-color: rgb(28, 23, 75);
 }
 
@@ -102,11 +102,12 @@ button:hover {
 
 .navBar {
     width: 65vw;
-    height: 7vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px;
+    padding: 15px;
     border: 1px solid rgb(255, 0, 195);
     border-radius: 8px;
     list-style: none;

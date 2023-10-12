@@ -5,7 +5,7 @@
     max-height: 100vh;
     width: auto;
     height: auto;
-    margin: auto;
+    margin: 20px;
     border: 1px solid red;
     border-radius: 8px;
     /*Orgniszing all sub-containers*/
@@ -15,8 +15,11 @@
     flex-direction: column;
 }
 
+
 /*CSSing the inputs*/
-input[type=text], input[type=date] {
+
+input[type=text],
+input[type=date] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px;
@@ -49,7 +52,6 @@ input[type=text], input[type=date] {
     flex-direction: column;
     flex-wrap: wrap;
     margin: 15px;
-
 }
 
 .trackCaloriesButton {
@@ -85,17 +87,14 @@ input[type=text], input[type=date] {
 
 .navBar {
     width: 65vw;
-    height: 7vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px;
+    padding: 15px;
     border: 1px solid rgb(255, 0, 195);
     border-radius: 8px;
-    list-style: none;
-}
-
-ul {
     list-style: none;
 }
 
@@ -103,8 +102,10 @@ ul {
     background-color: #d4d2d2;
 }
 
+ul {
+    list-style: none;
+}
+
 .selected {
     background-color: rgb(124, 180, 212, 0.5);
 }
-
-

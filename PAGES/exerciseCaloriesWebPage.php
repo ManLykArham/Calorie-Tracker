@@ -44,8 +44,7 @@
                     </li>
                     <li>
                         <label for="storedExerciseDuration">Duration (mins):</label>
-                        <input type="text" name="storedExerciseDuration" class="exerciseDurationInput" value=""
-                            readonly>
+                        <input type="text" name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedUserWeight">Weight (pounds):</label>
@@ -66,8 +65,7 @@
                     </li>
                     <li>
                         <label for="storedExerciseDuration">Duration (mins):</label>
-                        <input type="text" name="storedExerciseDuration" class="exerciseDurationInput" value=""
-                            readonly>
+                        <input type="text" name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
                     </li>
                     <li>
                         <label for="storedUserWeight">Weight (pounds):</label>
@@ -92,10 +90,10 @@
                     <li class="navBarImg selected">
                         <a href="./exerciseCaloriesWebPage.php"><img src="../IMG/calorie.png"></a>
                     </li>
-                    <li class="navBarImg">
+                    <li class="navBarImg ">
                         <a href="./foodLogWebPage.php"><img src="../IMG/food.png"></a>
                     </li>
-                    <li class="navBarImg">
+                    <li class="navBarImg ">
                         <a href="./settingWebPage.php"><img src="../IMG/setting.png"></a>
                     </li>
                 </ul>

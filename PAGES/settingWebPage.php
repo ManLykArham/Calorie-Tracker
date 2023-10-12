@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <h1>Setting</h1>
-        <form method="POST" action="../PHP/exerciseCalories.php">
+        <form method="POST" action="../PHP/setting.php">
             <div class="settingContainer">
                 <div class="resetPassword">
                     <button class="resBttn">Reset Password</button>
