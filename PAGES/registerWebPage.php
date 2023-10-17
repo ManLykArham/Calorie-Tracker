@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/register.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/register.css?<?php echo time(); ?>">
     <title>Register</title>
 </head>
 
@@ -13,35 +12,21 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
-                <h1>Create Account</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registeration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+            <form method="POST" action="../PHP/signUp.php">
+                <h1 class="register">Create Account</h1>
+                <input type="text" placeholder="First Name" name="userName">
+                <input type="text" placeholder="Surname" name="userSurname">
+                <input type="email" placeholder="Email" name="userEmail-SU">
+                <input type="password" placeholder="Password" name="userPassword-SU">
+                <button name="signup-bttn">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
-                <h1>Sign In</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+            <form method="POST" action="../PHP/logIn.php">
+                <h1 class="register">Sign In</h1>
+                <input type="email" placeholder="Email" name="userEmail-SI">
+                <input type="password" placeholder="Password" name="userPassword-SI">
+                <button name="login-bttn">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -60,6 +45,26 @@
         </div>
     </div>
 
+    <script>
+        // Alert what the error was after being validated in php
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if (error === 'emptyfields') {
+            alert('Empty Fields');
+        } else if (error === 'invalidemail') {
+            alert('Invalid Email');
+        } else if (error === 'invalidusername') {
+            alert('Invalid Username');
+        } else if (error === 'invalidusersurname') {
+            alert('Invalid User Surname');
+        } else if (error === 'usertaken') {
+            alert('User Taken');
+        } else if (error === 'wrongpassword') {
+            alert('Wrong Password');
+        } else if (error === 'no-user') {
+            alert('PLease try again :)');
+        }
+    </script>
     <script src="../JS/register.js"></script>
 </body>
 
