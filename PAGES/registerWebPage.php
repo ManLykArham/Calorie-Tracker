@@ -58,11 +58,11 @@
         } else if (error === 'invalidusersurname') {
             alert('Invalid User Surname');
         } else if (error === 'usertaken') {
-            alert('User Taken');
+            alert('User Taken: Email address already linked with another account :(');
         } else if (error === 'wrongpassword') {
             alert('Wrong Password');
         } else if (error === 'no-user') {
-            alert('PLease try again :)');
+            alert('Please try again :)');
         }
     </script>
     <script src="../JS/register.js"></script>

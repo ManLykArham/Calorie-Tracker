@@ -27,7 +27,7 @@ if ((isset($_POST['login-bttn']))) {
                     exit();
                 } elseif ($passwordCheck == true) {
                     session_start();
-                    $_SESSION['userid'] = $row['UserID'];
+                    $_SESSION['userID'] = $row['userID'];
                     header("Location: ../PAGES/dashboardWebPage.php?login=success");
                     exit();
                 } else {

@@ -1,3 +1,6 @@
+<?php
+require '../PHP/checkLogIn.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -23,18 +23,18 @@ if (isset($_POST['signup-bttn'])) {
         header("Location: ../PAGES/registerWebPage.php?error=invalidusersurname");
         exit();
     } else { //if validation successful...
-        $sql = "SELECT name FROM userinfo WHERE name=?";
+        $sql = "SELECT name FROM userinfo WHERE email=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../PAGES/registerWebPage.php?error=sqlerror'select'");
             exit();
         } else {
-            mysqli_stmt_bind_param($stmt, "s", $userName);
+            mysqli_stmt_bind_param($stmt, "s", $userEmail);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
-                header("Location: ../PAGES/registerWebPage.php?error=usertaken&email");
+                header("Location: ../PAGES/registerWebPage.php?error=usertaken&email=" . $resultCheck);
                 exit();
             } else {
                 $sql = "INSERT INTO userinfo (name, surname, email, password) VALUES (?, ?, ?, ?)";

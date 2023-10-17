@@ -1,3 +1,6 @@
+<?php
+require '../PHP/checkLogIn.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,20 +16,29 @@
 <body>
     <div class="container">
         <h1>Setting</h1>
-        <form method="POST" action="../PHP/setting.php">
-            <div class="settingContainer">
+        <div class="settingContainer">
+            <form action="../PAGES/settingRPWebPage.php">
+
                 <div class="resetPassword">
                     <button class="resBttn">Reset Password</button>
                 </div>
+            </form>
+            <form method="POST" action="../PHP/setting.php">
                 <div class="deleteAccount">
-                    <button class="delBttn">Delete Account</button>
+                    <button class="delBttn" name="delAccount">Delete Account</button>
                 </div>
+            </form>
+            <form method="POST" action="../PHP/setting.php">
+                <div class="resetData">
+                    <button class="resetDataBttn" name="resetDataBttn">Reset Data</button>
+                </div>
+            </form>
+            <form method="POST" action="../PHP/setting.php">
                 <div class="logout">
-                    <button class="logBttn">Log Out</button>
+                    <button class="logBttn" name="logoutBttn">Log Out</button>
                 </div>
-            </div>
-
-        </form>
+            </form>
+        </div>
 
         <div>
             <nav>

@@ -12,10 +12,10 @@ function addExerciseToList(e) {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../PHP/exerciseCalories.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    
+
     //Step 3: Once the api request is complete, the state will change, therefore it will update the caloriesBurned(jsVariable) 
     //to the $userCaloriesBurned value, which will then be used to populate the storedTrackList
-    xhr.onreadystatechange = function () { 
+    xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const caloriesBurned = xhr.responseText; // Retrieve the calories burned from the response
             updateCaloriesList(exerciseType, exerciseDuration, userWeight, caloriesBurned);

@@ -1,3 +1,7 @@
+<?php
+require '../PHP/checkLogIn.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,13 +22,13 @@
                 <label for="totalCalIn">
                     <p>Calories In:</p>
                 </label>
-                <input type="text" id="caloriesIn" name="caloriesIn" readonly>
+                <input type="text" id="caloriesIn" name="caloriesIn" value="<?php echo 0; ?>" readonly>
             </div>
             <div class="calOut">
                 <label for="totalCalOut">
                     <p>Calories Out:</p>
                 </label>
-                <input type="text" id="caloriesOut" name="caloriesOut" readonly>
+                <input type="text" id="caloriesOut" name="caloriesOut" value="<?php echo 0; ?>" readonly>
             </div>
         </div>
         <div>
