@@ -40,6 +40,8 @@ if ((isset($_POST['login-bttn']))) {
             }
         }
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 } else {
     header("Location: ../PAGES/registerWebPage.php");
     exit();

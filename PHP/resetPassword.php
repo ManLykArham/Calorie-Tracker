@@ -60,4 +60,6 @@ if (isset($_POST['resetBttn'])) {
             }
         }
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
