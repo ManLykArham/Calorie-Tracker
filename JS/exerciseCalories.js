@@ -1,6 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
+
     // Your JavaScript code that creates and modifies elements goes here
     document.getElementById('showExercisesBttn').addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const showDate = document.getElementById('exShowDateID').value;
+
+        // Make an AJAX request to fetch exercise data
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '../PHP/showExercise.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const exerciseData = JSON.parse(xhr.responseText);
+                displayExerciseData(exerciseData);
+            }
+        };
+
+        const data = `showDate=${showDate}&showExerciseButton=1`;
+        xhr.send(data);
+    });
+    window.addEventListener('load', function(e) {
         e.preventDefault();
 
         const showDate = document.getElementById('exShowDateID').value;
@@ -69,8 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 container.appendChild(trackedCaloriesList);
             });
         }
-    }
-});
+    };
 
 
 

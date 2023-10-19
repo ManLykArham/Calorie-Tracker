@@ -15,7 +15,6 @@ if (isset($_POST['deleteExercise'])) {
     } else {
         mysqli_stmt_bind_param($stmt, "ii", $exerciseID, $userID);
         mysqli_stmt_execute($stmt);
-        header("Location: ../PAGES/exerciseCaloriesWebPage.php?success=exercisedeleted" . $exerciseID);
-        exit();
+        
     }
 }
