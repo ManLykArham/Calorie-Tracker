@@ -72,7 +72,8 @@ p {
 /*CSSing the inputs*/
 
 input[type=text],
-input[type=date] {
+input[type=date],
+input[type=time] {
     width: auto;
     padding: 12px 20px;
     margin: 8px;
@@ -92,9 +93,12 @@ input[type=date] {
 input[type=text]:hover,
 input[type=text]:focus,
 input[type=date]:hover,
-input[type=date]:focus {
+input[type=date]:focus,
+input[type=time]:hover,
+input[type=time]:focus {
     border-color: #9f76f6;
 }
+
 
 .exerciseApi {
     width: auto;
@@ -143,7 +147,7 @@ input[type=date]:focus {
     margin: 15px;
 }
 
-.trackCaloriesButton {
+.trackButton {
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
@@ -156,12 +160,12 @@ input[type=date]:focus {
     transition: all 0.275s ease;
 }
 
-.trackCaloriesButton:hover {
+.trackButton:hover {
     background: #300450;
     border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
 }
 
-.deleteCaloriesButton {
+.deleteButton {
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
@@ -174,12 +178,12 @@ input[type=date]:focus {
     transition: all 0.275s ease;
 }
 
-.deleteCaloriesButton:hover {
+.deleteButton:hover {
     background-color: rgb(255, 0, 0, 0.3);
     border: 2px solid rgb(255, 0, 0);
 }
 
-.showExercisesButton {
+.showButton {
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
@@ -192,7 +196,7 @@ input[type=date]:focus {
     transition: all 0.275s ease;
 }
 
-.showExercisesButton:hover {
+.showButton:hover {
     background: #300450;
     border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
 }

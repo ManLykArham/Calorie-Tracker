@@ -25,29 +25,29 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseType">
                             <p>Your exercise:</p>
                         </label>
-                        <input type="text" name="exerciseType" class="userInput" id="etID" value="skiing">
+                        <input type="text" name="exerciseType" id="etID" value="skiing">
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Duration (mins):</p>
                         </label>
-                        <input type="text" name="exerciseDuration" class="userInput" id="edID" value="60">
+                        <input type="text" name="exerciseDuration" id="edID" value="60">
                     </div>
                     <div class="userWeight">
                         <label for="userWeight ">
                             <p>Weight (pounds):</p>
                         </label>
-                        <input type="text" name="userWeight" class="userInput" id="uwID" value="160">
+                        <input type="text" name="userWeight" id="uwID" value="160">
                     </div>
                     <div class="date">
                         <label for="date">
                             <p>Date:</p>
                         </label>
-                        <input type="date" name="dateTrack" class="userInput" id="exDateID" value="<?php echo date('Y-m-d'); ?>">
+                        <input type="date" name="dateTrack" id="exDateID" value="<?php echo date('Y-m-d'); ?>">
                     </div>
 
                     <div class="trackCaloriesbttn">
-                        <button class="trackCaloriesButton" id="trackCalBttnID" name="trackCaloriesButton">Track</button>
+                        <button class="trackButton" id="trackCalBttnID" name="trackCaloriesButton">Track</button>
                     </div>
                 </div>
             </form>
@@ -61,7 +61,7 @@ require '../PHP/checkLogIn.php';
                     </div>
 
                     <div class="showExercisesBttn">
-                        <button class="showExercisesButton" id="showExercisesBttn" name="showExerciseButton">Show Exercises</button>
+                        <button class="showButton" id="showExercisesBttn" name="showExerciseButton">Show Exercises</button>
                     </div>
                 </div>
             </form>
@@ -94,7 +94,7 @@ require '../PHP/checkLogIn.php';
                                 <input type="text" name="storedCaloriesBurned" class="caloriesBurnedInput" value="" readonly>
                             </li>
                             <li class="listItem">
-                                <button class="deleteCaloriesButton" name="deleteExercise">Delete</button>
+                                <button class="deleteButton" name="deleteExercise">Delete</button>
                             </li>
                         </div>
                     </ul>
