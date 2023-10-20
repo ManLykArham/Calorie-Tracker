@@ -1,0 +1,318 @@
+.container {
+    position: center;
+    /*Main Container settings*/
+    max-width: auto;
+    max-height: auto;
+    width: auto;
+    height: auto;
+    margin: 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid red;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    /*Orgniszing all sub-containers*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.divOrder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container::before {
+    /* ::before, allows to add that pink color before the container -> on the left side (change filter: blur(1px)) to understand*/
+    content: "";
+    position: absolute;
+    background-color: #c800ffee;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    left: -20%;
+    top: 10%;
+    z-index: -1000;
+    /*z-index decides which element goes on top, high z-index value (1000) element on TOP, low z-index value (-1000) element will be at the bottom */
+}
+
+.container::after {
+    /* ::after, allows to add that blue color after the container -> on the right side (change filter: blur(1px)) to understand*/
+    content: "";
+    position: absolute;
+    background-color: #1200d3;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    right: -20%;
+    bottom: -10%;
+    z-index: -1000;
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+
+/*CSSing the inputs*/
+
+input[type=text],
+input[type=date],
+input[type=time],
+input[type=datetime-local] {
+    width: auto;
+    padding: 12px 20px;
+    margin: 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #999;
+    transition: all 0.275s ease;
+}
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=date]:hover,
+input[type=date]:focus,
+input[type=time]:hover,
+input[type=time]:focus,
+input[type=datetime-local]:hover,
+input[type=datetime-local]:focus  {
+    border-color: #9f76f6;
+}
+
+
+.exerciseApi {
+    width: auto;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 40px;
+    color: #fff;
+    background: rgba(200, 2, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+.showExercise {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    color: #fff;
+    background: rgba(200, 2, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+.exerciseType,
+.exerciseDuration,
+.userWeight,
+.date,
+.trackCalories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+.trackButton {
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #ccc;
+    background: rgba(0, 98, 255, 0.15);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.275s ease;
+}
+
+.trackButton:hover {
+    background: #300450;
+    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
+}
+
+.deleteButton {
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #ccc;
+    background: rgba(0, 98, 255, 0.15);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.275s ease;
+}
+
+.deleteButton:hover {
+    background-color: rgb(255, 0, 0, 0.3);
+    border: 2px solid rgb(255, 0, 0);
+}
+
+.showButton {
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #ccc;
+    background: rgba(0, 98, 255, 0.15);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.275s ease;
+}
+
+.showButton:hover {
+    background: #300450;
+    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
+}
+
+.trackedContainer {
+    width: auto;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    margin: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    color: #fff;
+    background: rgba(200, 2, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+.trackedList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.individualListContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+.listItem {
+    margin: 8px;
+}
+
+.noExerciseTextContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noLogTextContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noExercisesText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+.noLogText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+.navBar {
+    width: 65vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    padding: 15px;
+    list-style: none;
+    color: #fff;
+    background: rgba(255, 2, 255, 0.1);
+    border: 1px solid red;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+ul {
+    list-style: none;
+}
+
+.navBarImg {
+    padding: 3px;
+}
+
+.navBarImg:hover {
+    padding: 7px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.selected {
+    background-color: rgb(124, 180, 212, 0.3);
+    border-radius: 5px;
+}

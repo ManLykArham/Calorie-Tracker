@@ -1,10 +1,15 @@
+<?php
+require '../PHP/checkLogIn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../CSS/exerciseCalories.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/Calories.css?<?php echo time(); ?>" /> <!-- Helps when CSS isn't working due to cache -->
+    <link rel="stylesheet" type="text/css" href="../CSS/universal.css?<?php echo time(); ?>" />
     <title>Exercise</title>
 
 </head>
@@ -12,74 +17,114 @@
 <body>
     <div class="container">
         <h1>Exercise Log</h1>
-        <form method="POST" action="../PHP/exerciseCalories.php">
-            <div class="exerciseApi">
-                <div class="exerciseType">
-                    <label for="exerciseType">Type in your exercise:</label>
-                    <input name="exerciseType" class="exerciseTypeInput" id="etID" value="skiing">
+
+        <div class="divOrder">
+            <form method="POST" action="../PHP/exerciseCalories.php">
+                <div class="exerciseApi">
+                    <div class="exerciseType">
+                        <label for="exerciseType">
+                            <p>Your exercise:</p>
+                        </label>
+                        <input type="text" name="exerciseType" id="etID" value="skiing">
+                    </div>
+                    <div class="exerciseDuration">
+                        <label for="exerciseDuration">
+                            <p>Duration (mins):</p>
+                        </label>
+                        <input type="text" name="exerciseDuration" id="edID" value="60">
+                    </div>
+                    <div class="userWeight">
+                        <label for="userWeight ">
+                            <p>Weight (pounds):</p>
+                        </label>
+                        <input type="text" name="userWeight" id="uwID" value="160">
+                    </div>
+                    <div class="date">
+                        <label for="date">
+                            <p>Date:</p>
+                        </label>
+                        <input type="date" name="dateTrack" id="exDateID" value="<?php echo date('Y-m-d'); ?>">
+                    </div>
+
+                    <div class="trackCaloriesbttn">
+                        <button class="trackButton" id="trackCalBttnID" name="trackCaloriesButton">Track</button>
+                    </div>
                 </div>
-                <div class="exerciseDuration">
-                    <label for="exerciseDuration">Duration (mins):</label>
-                    <input name="exerciseDuration" class="exerciseDurationInput"  id="edID" value="60">
+            </form>
+            <form method="POST" action="../PHP/showExercise.php">
+                <div class="showExercise">
+                    <div class="date">
+                        <label for="showDate">
+                            <p>Date:</p>
+                        </label>
+                        <input type="date" class="userInput" id="exShowDateID" name="showDate" value="<?php echo date('Y-m-d'); ?>">
+                    </div>
+
+                    <div class="showExercisesBttn">
+                        <button class="showButton" id="showExercisesBttn" name="showExerciseButton">Show Exercises</button>
+                    </div>
                 </div>
-                <div class="userWeight">
-                    <label for="userWeight ">Weight (pounds):</label>
-                    <input name="userWeight" class="userWeightInput" id="uwID" value="160">
+            </form>
+            <form method="POST" action="../PHP/deleteExercise.php">
+                <div class="trackedContainer" id="trackedCalContDiv">
+                    <ul class="trackedList">
+                        <div class="individualListContainer">
+                            <li class="listItem">
+                                <label for="storedExerciseType">
+                                    <p>Exercise type:</p>
+                                </label>
+                                <input type="text" name="storedExerciseType" class="exerciseTypeInput" value="" readonly>
+                            </li>
+                            <li class="listItem">
+                                <label for="storedExerciseDuration">
+                                    <p>Duration (mins):</p>
+                                </label>
+                                <input type="text" name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
+                            </li>
+                            <li class="listItem">
+                                <label for="storedUserWeight">
+                                    <p>Weight (pounds):</p>
+                                </label>
+                                <input type="text" name="storedUserWeight" class="userWeightInput" value="" readonly>
+                            </li>
+                            <li class="listItem">
+                                <label for="storedCaloriesBurned">
+                                    <p>Calories Burned (kcal):</p>
+                                </label>
+                                <input type="text" name="storedCaloriesBurned" class="caloriesBurnedInput" value="" readonly>
+                            </li>
+                            <li class="listItem">
+                                <button class="deleteButton" name="deleteExercise">Delete</button>
+                            </li>
+                        </div>
+                    </ul>
                 </div>
-                <div class="caloriesBurned">
-                    <label for="caloriesBurned">Calories Burned (kcal):</label>
-                    <input name="caloriesBurned" class="caloriesBurnedInput" id="cbID" value="N/A">
-                </div>
-                <div class="trackCalories">
-                    <button class="trackCaloriesButton" id="trackCalBttnID" name="trackCaloriesButton">Track</button>
-                </div>
-            </div>
-            <div class="trackedCaloriesContainer" id="trackedCalContDiv">
-                <ul class="trackedCalories">
-                    <li>
-                        <label for="storedExerciseType">Exercise type:</label>
-                        <input name="storedExerciseType" class="exerciseTypeInput"  value="" readonly>
+            </form>
+        </div>
+
+        <div>
+            <nav>
+                <ul class="navBar">
+                    <li class="navBarImg">
+                        <a href="./dashboardWebPage.php"><img src="../IMG/home.png"></a>
                     </li>
-                    <li>
-                        <label for="storedExerciseDuration">Duration (mins):</label>
-                        <input name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
+                    <li class="navBarImg selected">
+                        <a href="./exerciseCaloriesWebPage.php"><img src="../IMG/calorie.png"></a>
                     </li>
-                    <li>
-                        <label for="storedUserWeight">Weight (pounds):</label>
-                        <input name="storedUserWeight" class="userWeightInput"  value="" readonly>
+                    <li class="navBarImg ">
+                        <a href="./foodLogWebPage.php"><img src="../IMG/food.png"></a>
                     </li>
-                    <li>
-                        <label for="storedCaloriesBurned">Calories Burned (kcal):</label>
-                        <input name="storedCaloriesBurned" class="caloriesBurnedInput"  value="" readonly>
-                    </li>
-                    <li>
-                        <button class="trackCaloriesButton" name="deleteExercise">Delete</button>
+                    <li class="navBarImg ">
+                        <a href="./settingWebPage.php"><img src="../IMG/setting.png"></a>
                     </li>
                 </ul>
-                <ul class="trackedCalories">
-                    <li>
-                        <label for="storedExerciseType">Exercise type:</label>
-                        <input name="storedExerciseType" class="exerciseTypeInput" value="" readonly>
-                    </li>
-                    <li>
-                        <label for="storedExerciseDuration">Duration (mins):</label>
-                        <input name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
-                    </li>
-                    <li>
-                        <label for="storedUserWeight">Weight (pounds):</label>
-                        <input name="storedUserWeight" class="userWeightInput" value="" readonly>
-                    </li>
-                    <li>
-                        <label for="storedCaloriesBurned">Calories Burned (kcal):</label>
-                        <input name="storedCaloriesBurned" class="caloriesBurnedInput" value="" readonly>
-                    </li>
-                    <li>
-                        <button class="trackCaloriesButton" name="deleteExercise">Delete</button>
-                    </li>
-                </ul>
-            </div>
-        </form>
+            </nav>
+        </div>
     </div>
+    <!-- <script>
+        document.getElementById('exDateID').valueAsDate = new Date();
+        document.getElementById('exShowDateID').valueAsDate = new Date();
+    </script> -->
     <script type="module" src="../JS/exerciseCalories.js"></script>
 </body>
 
