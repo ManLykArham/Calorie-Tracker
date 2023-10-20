@@ -1,95 +1,95 @@
 
-    // Your JavaScript code that creates and modifies elements goes here
-    document.getElementById('showExercisesBttn').addEventListener('click', function(e) {
-        e.preventDefault();
+// Your JavaScript code that creates and modifies elements goes here
+document.getElementById('showMealBttn').addEventListener('click', function (e) {
+    e.preventDefault();
 
-        const showDate = document.getElementById('exShowDateID').value;
+    const showDate = document.getElementById('showLogID').value;
 
-        // Make an AJAX request to fetch exercise data
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../PHP/showExercise.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Make an AJAX request to fetch exercise data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showFoodLog.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const exerciseData = JSON.parse(xhr.responseText);
-                displayExerciseData(exerciseData);
-            }
-        };
-
-        const data = `showDate=${showDate}&showExerciseButton=1`;
-        xhr.send(data);
-    });
-    window.addEventListener('load', function(e) {
-        e.preventDefault();
-
-        const showDate = document.getElementById('exShowDateID').value;
-
-        // Make an AJAX request to fetch exercise data
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../PHP/showExercise.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const exerciseData = JSON.parse(xhr.responseText);
-                displayExerciseData(exerciseData);
-            }
-        };
-
-        const data = `showDate=${showDate}&showExerciseButton=1`;
-        xhr.send(data);
-    });
-
-
-    function displayExerciseData(exerciseData) {
-        const container = document.getElementById('trackedCalContDiv');
-        container.innerHTML = ''; // Clear existing data
-
-        if (exerciseData.length === 0) {
-            container.innerHTML = '<div class="noExerciseTextContainer"><p class="noExercisesText">There are no exercises for this day :)</p></div>';
-        } else {
-            exerciseData.forEach(function(exercise) {
-                const trackedCaloriesList = document.createElement('ul');
-                trackedCaloriesList.classList.add('trackedCaloriesList');
-                trackedCaloriesList.innerHTML = `
-
-                        <div class="individualListContainer">
-                            <li class="listItem">
-                                <label for="storedExerciseType">
-                                    <p>Exercise type:</p>
-                                </label>
-                                <input type="text" name="storedExerciseType" class="exerciseTypeInput" value="${exercise.exerciseType}" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedExerciseDuration">
-                                    <p>Duration (mins):</p>
-                                </label>
-                                <input type="text" name="storedExerciseDuration" class="exerciseDurationInput" value="${exercise.duration}" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedUserWeight">
-                                    <p>Weight (pounds):</p>
-                                </label>
-                                <input type="text" name="storedUserWeight" class="userWeightInput" value="${exercise.weight}" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedCaloriesBurned">
-                                    <p>Calories Burned (kcal):</p>
-                                </label>
-                                <input type="text" name="storedCaloriesBurned" class="caloriesBurnedInput" value="${exercise.caloriesLost}" readonly>
-                            </li>
-                            <li class="listItem">
-                                <input type="hidden" name="exerciseID" value="${exercise.exerciseID}">
-                                <button class="deleteButton" name="deleteExercise">Delete</button>
-                            </li>
-                        </div>
-            `;
-
-                container.appendChild(trackedCaloriesList);
-            });
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const foodData = JSON.parse(xhr.responseText);
+            displayFoodLogData(foodData);
         }
     };
+
+    const data = `showLog=${showDate}&showMealButton=1`;
+    xhr.send(data);
+});
+window.addEventListener('load', function (e) {
+    e.preventDefault();
+
+    const showDate = document.getElementById('showLogID').value;
+
+    // Make an AJAX request to fetch exercise data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showFoodLog.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const foodData = JSON.parse(xhr.responseText);
+            console.log("hello");
+            displayFoodLogData(foodData);
+        }
+    };
+
+    const data = `showLog=${showDate}&showMealButton=1`;
+    xhr.send(data);
+});
+
+
+function displayFoodLogData(foodData) {
+    const container = document.getElementById('trackedFoodContDiv');
+    container.innerHTML = ''; // Clear existing data
+
+    if (foodData.length === 0) {
+        container.innerHTML = '<div class="noLogTextContainer"><p class="noLogText">There are no meals logged in for this day :)</p></div>';
+    } else {
+        foodData.forEach(function (food) {
+            const trackedFoodList = document.createElement('ul');
+            trackedFoodList.classList.add('trackedList');
+            trackedFoodList.innerHTML = `
+
+                <div class="individualListContainer">
+                <li class="listItem">
+                    <label for="storedMealTime">
+                        <p>Time:</p>
+                    </label>
+                    <input type="time" name="storedMealTime" value="${food.logTime}" readonly>
+                </li>
+                <li class="listItem">
+                    <label for="storedMealName">
+                        <p>Food Name:</p>
+                    </label>
+                    <input type="text" name="storedMealName" value="${food.mealName}" readonly>
+                </li>
+                <li class="listItem">
+                    <label for="storedAmount">
+                        <p>Amount (grams):</p>
+                    </label>
+                    <input type="text" name="storedAmount" value="${food.amountGrams}" readonly>
+                </li>
+                <li class="listItem">
+                    <label for="storedCaloriesBurned">
+                        <p>Calories Gained (kcal):</p>
+                    </label>
+                    <input type="text" name="storedCaloriesGained" value="${food.caloriesGained}" readonly>
+                </li>
+                <li class="listItem">
+                    <input type="hidden" name="foodLogID" value="${food.foodLogID}">
+                    <button class="deleteButton" name="deleteMeal">Delete</button>
+                </li>
+            </div>
+            `;
+            container.appendChild(trackedFoodList);
+        });
+    }
+};
 
 
 
@@ -115,7 +115,7 @@
 //     xhr.open("POST", "../PHP/exerciseCalories.php", true);
 //     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-//     //Step 3: Once the api request is complete, the state will change, therefore it will update the caloriesBurned(jsVariable) 
+//     //Step 3: Once the api request is complete, the state will change, therefore it will update the caloriesBurned(jsVariable)
 //     //to the $userCaloriesBurned value, which will then be used to populate the storedTrackList
 //     xhr.onreadystatechange = function() {
 //         if (xhr.readyState === 4 && xhr.status === 200) {

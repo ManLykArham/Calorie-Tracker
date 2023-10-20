@@ -73,7 +73,8 @@ p {
 
 input[type=text],
 input[type=date],
-input[type=time] {
+input[type=time],
+input[type=datetime-local] {
     width: auto;
     padding: 12px 20px;
     margin: 8px;
@@ -95,7 +96,9 @@ input[type=text]:focus,
 input[type=date]:hover,
 input[type=date]:focus,
 input[type=time]:hover,
-input[type=time]:focus {
+input[type=time]:focus,
+input[type=datetime-local]:hover,
+input[type=datetime-local]:focus  {
     border-color: #9f76f6;
 }
 
@@ -201,7 +204,7 @@ input[type=time]:focus {
     border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
 }
 
-.trackedCaloriesContainer {
+.trackedContainer {
     width: auto;
     height: 70vh;
     display: grid;
@@ -219,7 +222,7 @@ input[type=time]:focus {
     border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
 }
 
-.trackedCaloriesList {
+.trackedList {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,7 +251,24 @@ input[type=time]:focus {
     justify-content: center;
 }
 
+.noLogTextContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .noExercisesText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+.noLogText{
     display: flex;
     align-items: center;
     justify-content: center;

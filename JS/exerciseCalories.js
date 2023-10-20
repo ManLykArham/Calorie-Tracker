@@ -51,7 +51,7 @@
         } else {
             exerciseData.forEach(function(exercise) {
                 const trackedCaloriesList = document.createElement('ul');
-                trackedCaloriesList.classList.add('trackedCaloriesList');
+                trackedCaloriesList.classList.add('trackedList');
                 trackedCaloriesList.innerHTML = `
 
                         <div class="individualListContainer">

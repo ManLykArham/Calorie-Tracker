@@ -38,7 +38,7 @@ require '../PHP/checkLogIn.php';
                         <label for="date">
                             <p>Date:</p>
                         </label>
-                        <input type="date" name="dateLog" id="exDateID" value="<?php echo date('Y-m-d'); ?>">
+                        <input type="datetime-local" name="dateLog" id="exDateID" value="<?php echo date('Y-m-d H:i');?>">
                     </div>
 
                     <div class="trackCaloriesbttn">
@@ -46,25 +46,25 @@ require '../PHP/checkLogIn.php';
                     </div>
                 </div>
             </form>
-            <form method="POST" action="../PHP/showExercise.php">
+            <form method="POST" action="../PHP/showFoodLog.php">
                 <div class="showExercise">
                     <div class="date">
                         <label for="showDate">
                             <p>Date:</p>
                         </label>
-                        <input type="date" class="userInput" id="exShowDateID" name="showLog"
+                        <input type="date" class="userInput" id="showLogID" name="showLog"
                             value="<?php echo date('Y-m-d'); ?>">
                     </div>
 
                     <div class="showExercisesBttn">
-                        <button class="showButton" id="showExercisesBttn" name="showExerciseButton">Show
+                        <button class="showButton" id="showMealBttn" name="showMealButton">Show
                             FoodLog</button>
                     </div>
                 </div>
             </form>
-            <form method="POST" action="../PHP/deleteExercise.php">
-                <div class="trackedCaloriesContainer" id="trackedCalContDiv">
-                    <ul class="trackedCaloriesList">
+            <form method="POST" action="../PHP/deleteMeal.php">
+                <div class="trackedContainer" id="trackedFoodContDiv">
+                    <ul class="trackedList">
                         <div class="individualListContainer">
                             <li class="listItem">
                                 <label for="storedMealTime">
@@ -123,7 +123,7 @@ require '../PHP/checkLogIn.php';
         document.getElementById('exShowDateID').valueAsDate = new Date();
     </script> -->
     <script type="module" src="../JS/foodLog.js"></script>
-    <script type="module" src="../JS/foodLogPHP.js"></script>
+    <script type="module" src="../JS/foodLogPHP.js"></script> 
 </body>
 
 </html>

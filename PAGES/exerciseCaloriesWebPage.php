@@ -66,8 +66,8 @@ require '../PHP/checkLogIn.php';
                 </div>
             </form>
             <form method="POST" action="../PHP/deleteExercise.php">
-                <div class="trackedCaloriesContainer" id="trackedCalContDiv">
-                    <ul class="trackedCaloriesList">
+                <div class="trackedContainer" id="trackedCalContDiv">
+                    <ul class="trackedList">
                         <div class="individualListContainer">
                             <li class="listItem">
                                 <label for="storedExerciseType">
