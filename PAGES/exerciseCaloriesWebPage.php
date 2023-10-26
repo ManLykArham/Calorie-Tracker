@@ -25,19 +25,19 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseType">
                             <p>Your exercise:</p>
                         </label>
-                        <input type="text" name="exerciseType" id="etID" value="skiing">
+                        <input type="text" name="exerciseType" id="etID" placeholder="skiing">
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Duration (mins):</p>
                         </label>
-                        <input type="text" name="exerciseDuration" id="edID" value="60">
+                        <input type="text" name="exerciseDuration" id="edID" placeholder="60">
                     </div>
                     <div class="userWeight">
                         <label for="userWeight ">
                             <p>Weight (pounds):</p>
                         </label>
-                        <input type="text" name="userWeight" id="uwID" value="160">
+                        <input type="text" name="userWeight" id="uwID" placeholder="160">
                     </div>
                     <div class="date">
                         <label for="date">
@@ -67,37 +67,7 @@ require '../PHP/checkLogIn.php';
             </form>
             <form method="POST" action="../PHP/deleteExercise.php">
                 <div class="trackedContainer" id="trackedCalContDiv">
-                    <ul class="trackedList">
-                        <div class="individualListContainer">
-                            <li class="listItem">
-                                <label for="storedExerciseType">
-                                    <p>Exercise type:</p>
-                                </label>
-                                <input type="text" name="storedExerciseType" class="exerciseTypeInput" value="" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedExerciseDuration">
-                                    <p>Duration (mins):</p>
-                                </label>
-                                <input type="text" name="storedExerciseDuration" class="exerciseDurationInput" value="" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedUserWeight">
-                                    <p>Weight (pounds):</p>
-                                </label>
-                                <input type="text" name="storedUserWeight" class="userWeightInput" value="" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedCaloriesBurned">
-                                    <p>Calories Burned (kcal):</p>
-                                </label>
-                                <input type="text" name="storedCaloriesBurned" class="caloriesBurnedInput" value="" readonly>
-                            </li>
-                            <li class="listItem">
-                                <button class="deleteButton" name="deleteExercise">Delete</button>
-                            </li>
-                        </div>
-                    </ul>
+
                 </div>
             </form>
         </div>

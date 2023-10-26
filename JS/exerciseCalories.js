@@ -1,58 +1,57 @@
+// Your JavaScript code that creates and modifies elements goes here
+document.getElementById('showExercisesBttn').addEventListener('click', function(e) {
+    e.preventDefault();
 
-    // Your JavaScript code that creates and modifies elements goes here
-    document.getElementById('showExercisesBttn').addEventListener('click', function(e) {
-        e.preventDefault();
+    const showDate = document.getElementById('exShowDateID').value;
 
-        const showDate = document.getElementById('exShowDateID').value;
+    // Make an AJAX request to fetch exercise data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showExercise.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        // Make an AJAX request to fetch exercise data
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../PHP/showExercise.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const exerciseData = JSON.parse(xhr.responseText);
+            displayExerciseData(exerciseData);
+        }
+    };
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const exerciseData = JSON.parse(xhr.responseText);
-                displayExerciseData(exerciseData);
-            }
-        };
+    const data = `showDate=${showDate}&showExerciseButton=1`;
+    xhr.send(data);
+});
+window.addEventListener('load', function(e) {
+    e.preventDefault();
 
-        const data = `showDate=${showDate}&showExerciseButton=1`;
-        xhr.send(data);
-    });
-    window.addEventListener('load', function(e) {
-        e.preventDefault();
+    const showDate = document.getElementById('exShowDateID').value;
 
-        const showDate = document.getElementById('exShowDateID').value;
+    // Make an AJAX request to fetch exercise data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showExercise.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        // Make an AJAX request to fetch exercise data
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../PHP/showExercise.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const exerciseData = JSON.parse(xhr.responseText);
+            displayExerciseData(exerciseData);
+        }
+    };
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const exerciseData = JSON.parse(xhr.responseText);
-                displayExerciseData(exerciseData);
-            }
-        };
-
-        const data = `showDate=${showDate}&showExerciseButton=1`;
-        xhr.send(data);
-    });
+    const data = `showDate=${showDate}&showExerciseButton=1`;
+    xhr.send(data);
+});
 
 
-    function displayExerciseData(exerciseData) {
-        const container = document.getElementById('trackedCalContDiv');
-        container.innerHTML = ''; // Clear existing data
+function displayExerciseData(exerciseData) {
+    const container = document.getElementById('trackedCalContDiv');
+    container.innerHTML = ''; // Clear existing data
 
-        if (exerciseData.length === 0) {
-            container.innerHTML = '<div class="noExerciseTextContainer"><p class="noExercisesText">There are no exercises for this day :)</p></div>';
-        } else {
-            exerciseData.forEach(function(exercise) {
-                const trackedCaloriesList = document.createElement('ul');
-                trackedCaloriesList.classList.add('trackedList');
-                trackedCaloriesList.innerHTML = `
+    if (exerciseData.length === 0) {
+        container.innerHTML = '<div class="noExerciseTextContainer"><p class="noExercisesText">There are no exercises for this day :)</p></div>';
+    } else {
+        exerciseData.forEach(function(exercise) {
+            const trackedCaloriesList = document.createElement('ul');
+            trackedCaloriesList.classList.add('trackedList');
+            trackedCaloriesList.innerHTML = `
 
                         <div class="individualListContainer">
                             <li class="listItem">
@@ -86,10 +85,10 @@
                         </div>
             `;
 
-                container.appendChild(trackedCaloriesList);
-            });
-        }
-    };
+            container.appendChild(trackedCaloriesList);
+        });
+    }
+};
 
 
 

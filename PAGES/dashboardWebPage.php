@@ -16,20 +16,26 @@ require '../PHP/checkLogIn.php'
 
 <body>
     <div class="container">
-        <h1>Todays Calories In/Out</h1>
+        <h1>Todays Calories kcal</h1>
         <div class="calDetails">
-            <div class="calIn">
-                <label for="totalCalIn">
-                    <p>Calories In:</p>
-                </label>
-                <input type="text" id="caloriesIn" name="caloriesIn" value="<?php echo 0; ?>" readonly>
-            </div>
-            <div class="calOut">
-                <label for="totalCalOut">
-                    <p>Calories Out:</p>
-                </label>
-                <input type="text" id="caloriesOut" name="caloriesOut" value="<?php echo 0; ?>" readonly>
-            </div>
+            <form method="POST" action="../PHP/calLost.php">
+                <div class="calIn" id="caloriesGained">
+                    <div id="caloriesGainedDIV">
+                        <label for="totalCalIn">
+                            <p>Calories Gained:</p>
+                        </label>
+                        <input type="text" id="caloriesIn" name="caloriesIn" value="<?php echo 0; ?>" readonly>
+                    </div>
+                </div>
+                <div class="calOut" id="caloriesLost">
+                    <div id="caloriesLostDIV">
+                        <label for="totalCalOut">
+                            <p>Calories Burned:</p>
+                        </label>
+                        <input type="text" id="caloriesOut" name="caloriesOut" value="<?php echo 0; ?>" readonly>
+                    </div>
+                </div>
+            </form>
         </div>
         <div>
             <nav>
@@ -51,7 +57,8 @@ require '../PHP/checkLogIn.php'
         </div>
     </div>
 
-    <script type="module" src="../JS/exerciseCalories.js"></script>
+    <script type="module" src="../JS/calLost.js"></script>
+    <script type="module" src="../JS/calGained.js"></script>
 </body>
 
 </html>

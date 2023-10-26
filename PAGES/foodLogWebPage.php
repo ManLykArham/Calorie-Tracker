@@ -26,19 +26,19 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseType">
                             <p>Food Name:</p>
                         </label>
-                        <input type="text" name="foodName" id="etID" value="brisket and fries">
+                        <input type="text" name="foodName" id="etID" placeholder="brisket and fries">
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Amount (grams):</p>
                         </label>
-                        <input type="text" name="foodAmount" id="edID" value="100">
+                        <input type="text" name="foodAmount" id="edID" placeholder="100">
                     </div>
                     <div class="date">
                         <label for="date">
                             <p>Date:</p>
                         </label>
-                        <input type="datetime-local" name="dateLog" id="exDateID" value="<?php echo date('Y-m-d H:i');?>">
+                        <input type="datetime-local" name="dateLog" id="exDateID" value="<?php echo date('Y-m-d H:i'); ?>">
                     </div>
 
                     <div class="trackCaloriesbttn">
@@ -52,8 +52,7 @@ require '../PHP/checkLogIn.php';
                         <label for="showDate">
                             <p>Date:</p>
                         </label>
-                        <input type="date" class="userInput" id="showLogID" name="showLog"
-                            value="<?php echo date('Y-m-d'); ?>">
+                        <input type="date" class="userInput" id="showLogID" name="showLog" value="<?php echo date('Y-m-d'); ?>">
                     </div>
 
                     <div class="showExercisesBttn">
@@ -64,37 +63,7 @@ require '../PHP/checkLogIn.php';
             </form>
             <form method="POST" action="../PHP/deleteMeal.php">
                 <div class="trackedContainer" id="trackedFoodContDiv">
-                    <ul class="trackedList">
-                        <div class="individualListContainer">
-                            <li class="listItem">
-                                <label for="storedMealTime">
-                                    <p>Time:</p>
-                                </label>
-                                <input type="time" name="storedMealTime" value="12:00" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedMealName">
-                                    <p>Food Name:</p>
-                                </label>
-                                <input type="text" name="storedMealName" value="" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedAmount">
-                                    <p>Amount (grams):</p>
-                                </label>
-                                <input type="text" name="storedAmount" value="" readonly>
-                            </li>
-                            <li class="listItem">
-                                <label for="storedCaloriesBurned">
-                                    <p>Calories Gained (kcal):</p>
-                                </label>
-                                <input type="text" name="storedCaloriesGained" value="" readonly>
-                            </li>
-                            <li class="listItem">
-                                <button class="deleteButton" name="deleteMeal">Delete</button>
-                            </li>
-                        </div>
-                    </ul>
+
                 </div>
             </form>
         </div>
@@ -123,7 +92,7 @@ require '../PHP/checkLogIn.php';
         document.getElementById('exShowDateID').valueAsDate = new Date();
     </script> -->
     <script type="module" src="../JS/foodLog.js"></script>
-    <script type="module" src="../JS/foodLogPHP.js"></script> 
+    <script type="module" src="../JS/foodLogPHP.js"></script>
 </body>
 
 </html>

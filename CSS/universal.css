@@ -18,6 +18,13 @@ img {
     height: 50px;
 }
 
+input[type=text],
+input[type=date],
+input[type=time],
+input[type=datetime-local] {
+    text-align: center;
+}
+
 ::-webkit-scrollbar {
     width: 15px;
 }
