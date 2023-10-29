@@ -25,19 +25,19 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseType">
                             <p>Your exercise:</p>
                         </label>
-                        <input type="text" name="exerciseType" id="etID" placeholder="skiing">
+                        <input type="text" name="exerciseType" id="etID" value="skiing">
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Duration (mins):</p>
                         </label>
-                        <input type="text" name="exerciseDuration" id="edID" placeholder="60">
+                        <input type="text" name="exerciseDuration" id="edID" value="60">
                     </div>
                     <div class="userWeight">
                         <label for="userWeight ">
                             <p>Weight (pounds):</p>
                         </label>
-                        <input type="text" name="userWeight" id="uwID" placeholder="160">
+                        <input type="text" name="userWeight" id="uwID" value="160">
                     </div>
                     <div class="date">
                         <label for="date">
@@ -95,9 +95,16 @@ require '../PHP/checkLogIn.php';
         document.getElementById('exDateID').valueAsDate = new Date();
         document.getElementById('exShowDateID').valueAsDate = new Date();
     </script> -->
-    <script type="module" src="../JS/exCalAPI.js"></script>
     <script type="module" src="../JS/exerciseCalories.js"></script>
-    
+    <script type="module" src="../JS/exCalAPI.js"></script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // This code will run after the first script and when the DOM is ready
+            var deleteScript = document.createElement('script');
+            deleteScript.src = '../JS/deleteEx.js';
+            document.body.appendChild(deleteScript);
+        });
+    </script> -->
 </body>
 
 </html>

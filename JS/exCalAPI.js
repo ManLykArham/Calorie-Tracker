@@ -25,6 +25,14 @@ function validateInputs(exType, exDuration, usrWeight) {
     }
 }
 
+function launchDelScript() {
+
+    var deleteScript = document.createElement('script');
+    deleteScript.src = '../JS/deleteEx.js';
+    document.body.appendChild(deleteScript);
+
+}
+
 function hmlRequest(exType, exDuration, usrWeight, date, trackBttn) {
     let exercise = {
         "type": exType,
@@ -49,8 +57,9 @@ function hmlRequest(exType, exDuration, usrWeight, date, trackBttn) {
 
             script.onload = function() {
                 loadData();
+                // launchDelScript();
+                console.log("del script");
             };
-
             document.head.appendChild(script);
         })
         .catch(error => console.error("Error:", error));

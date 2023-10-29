@@ -1,10 +1,10 @@
 <?php
 
-if (isset($_POST)) {
-    $data = file_get_contents("php://input");
-    $exercise = json_decode($data, true);
-    echo json_encode($exercise);
-}
+// if (isset($_POST)) {
+//     $data = file_get_contents("php://input");
+//     $exercise = json_decode($data, true);
+//     echo json_encode($exercise);
+// }
 
 
 

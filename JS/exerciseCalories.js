@@ -42,7 +42,6 @@ window.addEventListener('load', function(e) {
     xhr.send(data);
 });
 
-
 function loadData() {
     getData();
 }
@@ -61,8 +60,6 @@ function getData() {
             displayExerciseData(exerciseData);
         }
     };
-
-
     const data = `showDate=${showDate}&showExerciseButton=1`;
     xhr.send(data);
 }
@@ -106,8 +103,8 @@ function displayExerciseData(exerciseData) {
                                 <input type="text" name="storedCaloriesBurned" class="caloriesBurnedInput" value="${exercise.caloriesLost}" readonly>
                             </li>
                             <li class="listItem">
-                                <input type="hidden" name="exerciseID" value="${exercise.exerciseID}">
-                                <button class="deleteButton" name="deleteExercise">Delete</button>
+                                <input type="hidden" id="exerID" name="exerciseID" value="${exercise.exerciseID}">
+                                <button class="deleteButton" id="deleteExBttn" name="deleteExercise">Delete</button>
                             </li>
                         </div>
             `;
