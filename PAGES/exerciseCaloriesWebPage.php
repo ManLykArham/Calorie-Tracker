@@ -61,7 +61,7 @@ require '../PHP/checkLogIn.php';
                     </div>
 
                     <div class="showExercisesBttn">
-                        <button class="showButton" id="showExercisesBttn" name="showExerciseButton">Show Exercises</button>
+                        <button class="showButton" id="showExercisesButtn" name="showExerciseButton">Show Exercises</button>
                     </div>
                 </div>
             </form>
@@ -97,14 +97,6 @@ require '../PHP/checkLogIn.php';
     </script> -->
     <script type="module" src="../JS/exerciseCalories.js"></script>
     <script type="module" src="../JS/exCalAPI.js"></script>
-    <!-- <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // This code will run after the first script and when the DOM is ready
-            var deleteScript = document.createElement('script');
-            deleteScript.src = '../JS/deleteEx.js';
-            document.body.appendChild(deleteScript);
-        });
-    </script> -->
 </body>
 
 </html>

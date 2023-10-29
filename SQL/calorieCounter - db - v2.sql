@@ -30,7 +30,7 @@ CREATE TABLE foodLog (
     foodLogID INT AUTO_INCREMENT PRIMARY KEY,
     userID INT,
     mealName VARCHAR(255) NOT NULL,
-    amountGrams INT NOT NULL,
+    amountGrams DECIMAL (5, 2) NOT NULL,
     caloriesGained INT NOT NULL,
     logDate DATE NOT NULL,
     logTime TIME NOT NULL,

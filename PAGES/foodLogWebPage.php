@@ -26,19 +26,19 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseType">
                             <p>Food Name:</p>
                         </label>
-                        <input type="text" name="foodName" id="etID" placeholder="brisket and fries">
+                        <input type="text" name="foodName" id="mealName" value="brisket and fries">
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Amount (grams):</p>
                         </label>
-                        <input type="text" name="foodAmount" id="edID" placeholder="100">
+                        <input type="text" name="foodAmount" id="mealAmount" value="100">
                     </div>
                     <div class="date">
                         <label for="date">
                             <p>Date:</p>
                         </label>
-                        <input type="datetime-local" name="dateLog" id="exDateID" value="<?php echo date('Y-m-d H:i'); ?>">
+                        <input type="datetime-local" name="dateLog" id="mealDateID" value="<?php echo date('Y-m-d H:i'); ?>">
                     </div>
 
                     <div class="trackCaloriesbttn">
@@ -91,8 +91,8 @@ require '../PHP/checkLogIn.php';
         document.getElementById('exDateID').valueAsDate = new Date();
         document.getElementById('exShowDateID').valueAsDate = new Date();
     </script> -->
-    <script type="module" src="../JS/foodLog.js"></script>
     <script type="module" src="../JS/foodLogPHP.js"></script>
+    <script type="module" src="../JS/foodValidation.js"></script>
 </body>
 
 </html>

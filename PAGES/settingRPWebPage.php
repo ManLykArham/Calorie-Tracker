@@ -19,9 +19,9 @@ require '../PHP/checkLogIn.php'
         <div class="resetPswrdContainer">
             <form method="POST" action="../PHP/resetPassword.php">
                 <div class="inputFields">
-                    <input type="text" placeholder="Old Password" name="confirmPasswrd">
-                    <input type="text" placeholder="New Password" name="newPasswrd">
-                    <input type="text" placeholder="Confirm new Password" name="confirmNewPasswrd">
+                    <input type="password" placeholder="Old Password" name="confirmPasswrd">
+                    <input type="password" placeholder="New Password" name="newPasswrd">
+                    <input type="password" placeholder="Confirm new Password" name="confirmNewPasswrd">
                     <button class="resetBttn" name="resetBttn">Reset!</button>
                 </div>
             </form>

@@ -1,9 +1,11 @@
 function validateInputs(exType, exDuration, usrWeight) {
 
     //console.log(exType.length, exDuration, usrWeight);
+    console.log("hello");
+    console.log(exType);
+    console.log(typeof exType);
 
-
-    const regexString = /^[a-zA-Z]+$/;
+    const regexString = /^[a-zA-Z\s,]+$/;
     const regexNumbers = /^[0-9]+$/;
     const regexWeight = /^([1-9]\d*)(.\d+)?$/;
 
