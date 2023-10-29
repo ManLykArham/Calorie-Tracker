@@ -25,13 +25,12 @@ function validateInputs(exType, exDuration, usrWeight) {
     }
 }
 
-function launchDelScript() {
+// function launchDelScript() {
+//     var deleteScript = document.createElement('script');
+//     deleteScript.src = '../JS/deleteEx.js';
+//     document.body.appendChild(deleteScript);
 
-    var deleteScript = document.createElement('script');
-    deleteScript.src = '../JS/deleteEx.js';
-    document.body.appendChild(deleteScript);
-
-}
+// }
 
 function hmlRequest(exType, exDuration, usrWeight, date, trackBttn) {
     let exercise = {
@@ -57,8 +56,6 @@ function hmlRequest(exType, exDuration, usrWeight, date, trackBttn) {
 
             script.onload = function() {
                 loadData();
-                // launchDelScript();
-                console.log("del script");
             };
             document.head.appendChild(script);
         })

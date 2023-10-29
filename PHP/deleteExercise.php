@@ -2,9 +2,8 @@
 if (isset($_POST)) {
     $data = file_get_contents("php://input");
     $exercise = json_decode($data, true);
-    //$exerciseID = $exercise["exerID"];
-    echo $data;
-    //deleteVariables($exerciseID);
+    $exerciseID = $exercise["exerID"];
+    deleteVariables($exerciseID);
 } else {
     echo "POST Request Failed.";
 }
@@ -17,6 +16,7 @@ function deleteVariables($exerciseID)
     session_start();
     $userID = $_SESSION['userID'];
     //$exerciseID = $_POST['exerID'];
+    $successDelete = "exercise deleted";
 
     $sql = "DELETE FROM exercisetype WHERE exerciseID = ? AND userID = ?";
     if (!$conn) {
@@ -29,7 +29,6 @@ function deleteVariables($exerciseID)
     } else {
         mysqli_stmt_bind_param($stmt, "ii", $exerciseID, $userID);
         mysqli_stmt_execute($stmt);
-        header("Location: ../PAGES/exerciseCaloriesWebPage.php?sucess=exercisedeleted");
-        exit();
+        echo $successDelete;
     }
 }

@@ -64,6 +64,35 @@ function getData() {
     xhr.send(data);
 }
 
+function hmlRequest(exerciseID) {
+    console.log("inside hmlrequest");
+    let exercise = {
+        "exerID": exerciseID
+    }
+
+    console.log(exercise);
+
+    fetch("../PHP/deleteExercise.php", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json;"
+            },
+            "body": JSON.stringify(exercise)
+        }).then((response) => {
+            return response.text();
+        }).then(newResponse => console.log(newResponse))
+        .then(() => {
+            var script = document.createElement('script');
+            script.src = '../JS/exerciseCalories.js'; // Replace with the actual path to your exerciseCalories.js file
+            script.type = 'text/javascript';
+
+            script.onload = function() {
+                loadData();
+            };
+            document.head.appendChild(script);
+        })
+        .catch(error => console.error("Error:", error));
+}
 
 function displayExerciseData(exerciseData) {
     const container = document.getElementById('trackedCalContDiv');
@@ -110,6 +139,14 @@ function displayExerciseData(exerciseData) {
             `;
 
             container.appendChild(trackedCaloriesList);
+
+            const deleteButton = trackedCaloriesList.querySelector('.deleteButton');
+            deleteButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const exerciseID = exercise.exerciseID;
+                hmlRequest(exerciseID);
+            });
+
         });
     }
 };
