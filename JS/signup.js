@@ -51,41 +51,38 @@ async function hashPassword(password) {
 
     return { hashedPassword, salt: Array.from(salt) };
 }
-
 async function requestToSignUpPHP(userName, userSurname, userEmail, userPassword) {
-    let userHashPassword;
-    let userHPSalt;
-
     hashPassword(userPassword).then(result => {
-        userHashPassword = result.hashedPassword;
+        const userHashPassword = result.hashedPassword;
+        const userHPSalt = result.salt;
+
         console.log("UHP: " + userHashPassword);
-        userHPSalt = result.salt;
         console.log("SALT: " + userHPSalt);
+
+        let userData = {
+            "name": userName,
+            "surname": userSurname,
+            "email": userEmail,
+            "hashpassword": userHashPassword,
+            "userhpsalt": userHPSalt
+        };
+
+        fetch("../PHP/signUp.php", {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json;"
+                },
+                "body": JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.userTaken === true) {
+                    alert("Email has already been registered with an account");
+                }
+            })
+            .catch(error => console.error("Error:", error));
     });
-
-    let userData = {
-        "name": userName,
-        "surname": userSurname,
-        "email": userEmail,
-        "hashpassword": userHashPassword,
-        "userhpsalt": userHPSalt
-    }
-
-    await fetch("../PHP/signUp.php", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json;"
-            },
-            "body": JSON.stringify(userData)
-        }).then(response => response.json())
-        .then(data => {
-            if (data.userTaken === true) {
-                alert("Email has already been registered with an account");
-            }
-        })
-        .catch(error => console.error("Error:", error));
-};
-
+}
 
 document.getElementById('signupBttn').addEventListener("click", async function(e) {
     e.preventDefault();
