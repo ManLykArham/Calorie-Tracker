@@ -16,8 +16,8 @@
                 <h1 class="register">Create Account</h1>
                 <input type="text" placeholder="First Name" id="userName" name="userName">
                 <input type="text" placeholder="Surname" id="usrSurname" name="userSurname">
-                <input type="email" placeholder="Email" id="usrEmail" name="usrEmail">
-                <input type="password" placeholder="Password" id="usrPassword" name="usrPassword">
+                <input type="email" placeholder="Email" id="usrEmail" name="userEmail-SU">
+                <input type="password" placeholder="Password" id="usrPassword" name="userPassword-SU">
                 <button id="signupBttn" name="signup-bttn">Sign Up</button>
             </form>
         </div>

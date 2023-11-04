@@ -15,8 +15,8 @@ if (isset($_POST)) {
     $userName = $userData['name'];
     $userSurname = $userData['surname'];
     $userEmail = $userData['email'];
-    $userPassword = $_POST['userPassword-SU'];
-    $userTaken = true;
+    $userHashPassword = $userData['hashpassword'];
+    $userSalt = $userData['userhpsalt'];
 
         $sql = "SELECT name FROM userinfo WHERE email=?";
         $stmt = mysqli_stmt_init($conn);
@@ -29,17 +29,15 @@ if (isset($_POST)) {
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
-                echo $userTaken;
+                echo json_encode(["userTaken" => true]);
             } else {
-                $sql = "INSERT INTO userinfo (name, surname, email, password) VALUES (?, ?, ?, ?)";
+                $sql = "INSERT INTO userinfo (name, surname, email, password, salt) VALUES (?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header("Location: ../PAGES/registerWebPage.php?error=sqlerror'insert'");
                     exit();
                 } else {
-                    $hashedPassword = password_hash($userPassword, PASSWORD_DEFAULT);
-
-                    mysqli_stmt_bind_param($stmt, "ssss", $userName, $userSurname, $userEmail, $hashedPassword);
+                    mysqli_stmt_bind_param($stmt, "sssss", $userName, $userSurname, $userEmail, $userHashPassword, $userSalt);
                     mysqli_stmt_execute($stmt);
                     header("Location: ../PAGES/registerWebPage.php?signup=success");
                     exit();
