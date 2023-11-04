@@ -14,11 +14,11 @@
         <div class="form-container sign-up">
             <form method="POST" action="../PHP/signUp.php">
                 <h1 class="register">Create Account</h1>
-                <input type="text" placeholder="First Name" name="userName">
-                <input type="text" placeholder="Surname" name="userSurname">
-                <input type="email" placeholder="Email" name="userEmail-SU">
-                <input type="password" placeholder="Password" name="userPassword-SU">
-                <button name="signup-bttn">Sign Up</button>
+                <input type="text" placeholder="First Name" id="userName" name="userName">
+                <input type="text" placeholder="Surname" id="usrSurname" name="userSurname">
+                <input type="email" placeholder="Email" id="usrEmail" name="usrEmail">
+                <input type="password" placeholder="Password" id="usrPassword" name="usrPassword">
+                <button id="signupBttn" name="signup-bttn">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -66,6 +66,7 @@
         }
     </script>
     <script src="../JS/register.js"></script>
+    <script src="../JS/signup.js"></script>
 </body>
 
 </html>
