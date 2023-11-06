@@ -14,19 +14,19 @@
         <div class="form-container sign-up">
             <form method="POST" action="../PHP/signUp.php">
                 <h1 class="register">Create Account</h1>
-                <input type="text" placeholder="First Name" id="userName" name="userName">
-                <input type="text" placeholder="Surname" id="usrSurname" name="userSurname">
-                <input type="email" placeholder="Email" id="usrEmail" name="userEmail-SU">
-                <input type="password" placeholder="Password" id="usrPassword" name="userPassword-SU">
+                <input type="text" placeholder="First Name" id="userName-SU" name="userName">
+                <input type="text" placeholder="Surname" id="userSurname-SU" name="userSurname">
+                <input type="email" placeholder="Email" id="userEmail-SU" name="userEmail-SU">
+                <input type="password" placeholder="Password" id="userPassword-SU" name="userPassword-SU">
                 <button id="signupBttn" name="signup-bttn">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
             <form method="POST" action="../PHP/logIn.php">
                 <h1 class="register">Sign In</h1>
-                <input type="email" placeholder="Email" name="userEmail-SI">
-                <input type="password" placeholder="Password" name="userPassword-SI">
-                <button name="login-bttn">Sign In</button>
+                <input type="email" placeholder="Email" id="userEmail-SI" name="userEmail-SI">
+                <input type="password" placeholder="Password" id="userPassword-SI" name="userPassword-SI">
+                <button id="loginBttn" name="login-bttn">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -66,7 +66,8 @@
         }
     </script>
     <script src="../JS/register.js"></script>
-    <script src="../JS/signup.js"></script>
+    <!-- <script src="../JS/signup.js"></script> -->
+    <script src="../JS/login.js"></script>
 </body>
 
 </html>

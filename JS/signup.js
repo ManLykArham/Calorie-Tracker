@@ -25,7 +25,13 @@ function validateSignUpInputs(userName, userSurname, userEmail, userPassword) {
 async function hashPassword(password) {
     // Generate a random salt (you should store this along with the hashed password)
     const salt = crypto.getRandomValues(new Uint8Array(16));
+    console.log(salt);
+    let newSaltBuffer = new Uint8Array(
+        [229, 234, 77, 8, 0, 1, 158, 67, 4, 15, 16, 143, 10, 248, 27, 10]
+    );
 
+    // Display the result
+    console.log(newSaltBuffer);
     // Use the PBKDF2 algorithm to derive a key from the password
     const key = await crypto.subtle.importKey(
         'raw',
@@ -36,7 +42,7 @@ async function hashPassword(password) {
     // Derive a key using PBKDF2 with 100,000 iterations (you can adjust this)
     const derivedKey = await crypto.subtle.deriveBits({
             name: 'PBKDF2',
-            salt: salt,
+            salt: newSaltBuffer,
             iterations: 100000,
             hash: 'SHA-256',
         },
@@ -49,7 +55,11 @@ async function hashPassword(password) {
         .map(byte => byte.toString(16).padStart(2, '0'))
         .join('');
 
-    return { hashedPassword, salt: Array.from(salt) };
+    // const newsalt = Array.from(salt)
+    // console.log(newsalt = Array.from(salt));
+    console.log(hashedPassword);
+
+    return { hashedPassword, salt: Array.from(newSaltBuffer) };
 }
 async function requestToSignUpPHP(userName, userSurname, userEmail, userPassword) {
     hashPassword(userPassword).then(result => {
@@ -87,10 +97,10 @@ async function requestToSignUpPHP(userName, userSurname, userEmail, userPassword
 document.getElementById('signupBttn').addEventListener("click", async function(e) {
     e.preventDefault();
 
-    const userName = document.getElementById('userName').value;
-    const userSurname = document.getElementById('usrSurname').value;
-    const userEmail = document.getElementById('usrEmail').value;
-    const userPassword = document.getElementById('usrPassword').value;
+    const userName = document.getElementById('userName-SU').value;
+    const userSurname = document.getElementById('userSurname-SU').value;
+    const userEmail = document.getElementById('userEmail-SU').value;
+    const userPassword = document.getElementById('userPassword-SU').value;
 
     if (validateSignUpInputs(userName, userSurname, userEmail, userPassword) == true) {
         await requestToSignUpPHP(userName, userSurname, userEmail, userPassword);
