@@ -1,10 +1,6 @@
 function validateInputs(exType, exDuration, usrWeight) {
 
     //console.log(exType.length, exDuration, usrWeight);
-    console.log("hello");
-    console.log(exType);
-    console.log(typeof exType);
-
     const regexString = /^[a-zA-Z\s,]+$/;
     const regexNumbers = /^[0-9]+$/;
     const regexWeight = /^([1-9]\d*)(.\d+)?$/;
@@ -17,8 +13,12 @@ function validateInputs(exType, exDuration, usrWeight) {
         alert("Type a proper exercise");
     } else if (!testDuration) {
         alert("Type a proper duration");
-    } else if (!testWeight) {
+    } else if (exDuration > 1000) {
+        alert("Maximum duration: 1000 mins");
+    } else if (!testWeight || usrWeight > 400) {
         alert("Type a proper user weight");
+    } else if (usrWeight > 400) {
+        alert("Maximum weight: 400 lbs");
     } else if (testType && testDuration && testWeight) {
         return true;
     } else {
@@ -34,13 +34,43 @@ function validateInputs(exType, exDuration, usrWeight) {
 
 // }
 
-function hmlRequest(exType, exDuration, usrWeight, date, trackBttn) {
+async function fetchRequestToAPI(exType, exDuration, usrWeight, date) {
+
+    const durationInHours = exDuration / 60;
+    let caloriesBurned;
+
+    const apiKey = 'uqvXuwvG+dMRJNNvCK/eDw==MSB3hIFeNEbBSWx3';
+    const url = "https://api.api-ninjas.com/v1/caloriesburned?activity=" + exType + "&weight=" + usrWeight;
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "X-Api-Key": apiKey,
+            }
+        });
+        if (response.status === 302) {
+            console.log("302");
+            alert("Status Error: Exercise Not found, please try again")
+        } else if (response.status === 200) {
+            const data = await response.json();
+            caloriesBurned = data[0].calories_per_hour;
+            const userCaloriesBurned = caloriesBurned * durationInHours;
+            return hmlRequest(exType, exDuration, usrWeight, date, userCaloriesBurned);
+
+        }
+    } catch (error) {
+        console.error("Error: ", error);
+        throw error;
+    }
+}
+
+function hmlRequest(exType, exDuration, usrWeight, date, userCaloriesBurned) {
     let exercise = {
         "type": exType,
         "duration": exDuration,
         "weight": usrWeight,
         "date": date,
-        "trackCaloriesButton": trackBttn
+        "caloriesBurned": userCaloriesBurned
     }
 
     fetch("../PHP/exerciseCalories.php", {
@@ -71,10 +101,10 @@ document.getElementById('trackCalBttnID').addEventListener("click", function(e) 
     const exDuration = document.getElementById('edID').value;
     const usrWeight = document.getElementById('uwID').value;
     const date = document.getElementById('exDateID').value;
-    const trackBttn = document.getElementById('trackCalBttnID')
+    //const trackBttn = document.getElementById('trackCalBttnID')
 
 
     if (validateInputs(exType, exDuration, usrWeight) == true) {
-        hmlRequest(exType, exDuration, usrWeight, date, trackBttn);
+        fetchRequestToAPI(exType, exDuration, usrWeight, date);
     }
 })

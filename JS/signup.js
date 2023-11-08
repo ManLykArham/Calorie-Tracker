@@ -88,6 +88,9 @@ async function requestToSignUpPHP(userName, userSurname, userEmail, userPassword
             .then(data => {
                 if (data.userTaken === true) {
                     alert("Email has already been registered with an account");
+                } else if (data.success === "signedUP") {
+                    await = window.location.href = '../PAGES/dashboardWebPage.php';
+                    alert("You have successfully signed up :)");
                 }
             })
             .catch(error => console.error("Error:", error));

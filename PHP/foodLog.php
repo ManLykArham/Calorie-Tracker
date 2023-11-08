@@ -17,45 +17,46 @@ if (isset($_POST)) {
 
     $foodName = $meal["name"];
     $foodAmount = $meal["amount"];
-    $food = $foodAmount . "g" . " " . $foodName;
     $date = $meal["date"];
-    $caloriesIN = 0;
+    $caloriesGained = $meal["caloriesGained"];
 
-    $cURL = curl_init();
-
-    $apiKey = 'uqvXuwvG+dMRJNNvCK/eDw==MSB3hIFeNEbBSWx3';
-
-    $url = "https://api.api-ninjas.com/v1/nutrition?query=" . urlencode($food);
-
-    curl_setopt($cURL, CURLOPT_URL, $url); //Method to fetch the desired url
-    curl_setopt(
-        $cURL,
-        CURLOPT_HTTPHEADER,
-        array(
-            //Allows to validate the apiKey, to access the url
-            'X-Api-Key:' . $apiKey,
-            'Content-Type: application/json'
-        )
-    );
-    curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true); //Makes the data more readable
-
-    $resp = curl_exec($cURL);
-
-    if ($e = curl_error($cURL)) { //Error handling
-        echo $e;
-    } else {
-        $decoded = json_decode($resp, true);
-        $totalCalories = 0;
-        foreach ($decoded as $foodItem) {
-            $totalCalories += $foodItem["calories"];
-        }
-        // header("Location: ../HTML/foodLogWebPage.php?success=getrequest");
-        //print_r("Total Calories: " . $totalCalories);
-        storeVariablesFood($foodName, $foodAmount, $totalCalories, $date);
-    }
-
-    curl_close($cURL);
-} else {
-    header("Location: ../PAGES/foodLogWebPage.php?error=request_method");
-    '<script type="text/javascript"> window. onload = function () { alert("Submission Unsuccessful :("); } </script>';
+    storeVariablesFood($foodName, $foodAmount, $caloriesGained, $date);
 }
+//     $cURL = curl_init();
+
+//     $apiKey = 'uqvXuwvG+dMRJNNvCK/eDw==MSB3hIFeNEbBSWx3';
+
+//     $url = "https://api.api-ninjas.com/v1/nutrition?query=" . urlencode($food);
+
+//     curl_setopt($cURL, CURLOPT_URL, $url); //Method to fetch the desired url
+//     curl_setopt(
+//         $cURL,
+//         CURLOPT_HTTPHEADER,
+//         array(
+//             //Allows to validate the apiKey, to access the url
+//             'X-Api-Key:' . $apiKey,
+//             'Content-Type: application/json'
+//         )
+//     );
+//     curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true); //Makes the data more readable
+
+//     $resp = curl_exec($cURL);
+
+//     if ($e = curl_error($cURL)) { //Error handling
+//         echo $e;
+//     } else {
+//         $decoded = json_decode($resp, true);
+//         $totalCalories = 0;
+//         foreach ($decoded as $foodItem) {
+//             $totalCalories += $foodItem["calories"];
+//         }
+//         // header("Location: ../HTML/foodLogWebPage.php?success=getrequest");
+//         //print_r("Total Calories: " . $totalCalories);
+//         storeVariablesFood($foodName, $foodAmount, $totalCalories, $date);
+//     }
+
+//     curl_close($cURL);
+// } else {
+//     header("Location: ../PAGES/foodLogWebPage.php?error=request_method");
+//     '<script type="text/javascript"> window. onload = function () { alert("Submission Unsuccessful :("); } </script>';
+// }

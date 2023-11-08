@@ -13,7 +13,7 @@
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(7.4px);
     -webkit-backdrop-filter: blur(7.4px);
-    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
     /*Orgniszing all sub-containers*/
     display: flex;
     align-items: center;
@@ -71,10 +71,10 @@ p {
 
 /*CSSing the inputs*/
 
-input[type=text],
-input[type=date],
-input[type=time],
-input[type=datetime-local] {
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
     width: auto;
     padding: 12px 20px;
     margin: 8px;
@@ -91,14 +91,14 @@ input[type=datetime-local] {
     transition: all 0.275s ease;
 }
 
-input[type=text]:hover,
-input[type=text]:focus,
-input[type=date]:hover,
-input[type=date]:focus,
-input[type=time]:hover,
-input[type=time]:focus,
-input[type=datetime-local]:hover,
-input[type=datetime-local]:focus {
+input[type="text"]:hover,
+input[type="text"]:focus,
+input[type="date"]:hover,
+input[type="date"]:focus,
+input[type="time"]:hover,
+input[type="time"]:focus,
+input[type="datetime-local"]:hover,
+input[type="datetime-local"]:focus {
     border-color: #9f76f6;
 }
 
@@ -116,7 +116,7 @@ input[type=datetime-local]:focus {
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(7.4px);
     -webkit-backdrop-filter: blur(7.4px);
-    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
 }
 
 .showExercise {
@@ -133,7 +133,7 @@ input[type=datetime-local]:focus {
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(7.4px);
     -webkit-backdrop-filter: blur(7.4px);
-    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
 }
 
 .exerciseType,
@@ -164,7 +164,7 @@ input[type=datetime-local]:focus {
 
 .trackButton:hover {
     background: #300450;
-    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
+    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%);
 }
 
 .deleteButton {
@@ -200,7 +200,7 @@ input[type=datetime-local]:focus {
 
 .showButton:hover {
     background: #300450;
-    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
+    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%);
 }
 
 .trackedContainer {
@@ -218,7 +218,7 @@ input[type=datetime-local]:focus {
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(7.4px);
     -webkit-backdrop-filter: blur(7.4px);
-    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
 }
 
 .trackedList {
@@ -237,7 +237,7 @@ input[type=datetime-local]:focus {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
 }
 
 .listItem {
@@ -294,7 +294,7 @@ input[type=datetime-local]:focus {
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(7.4px);
     -webkit-backdrop-filter: blur(7.4px);
-    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
 }
 
 ul {

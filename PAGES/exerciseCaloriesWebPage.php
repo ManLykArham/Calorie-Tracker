@@ -31,7 +31,7 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseDuration">
                             <p>Duration (mins):</p>
                         </label>
-                        <input type="text" name="exerciseDuration" id="edID" value="60">
+                        <input type="text" name="exerciseDuration" id="edID" value="999">
                     </div>
                     <div class="userWeight">
                         <label for="userWeight ">
