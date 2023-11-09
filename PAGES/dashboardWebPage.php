@@ -11,7 +11,6 @@ require '../PHP/checkLogIn.php'
     <link rel="stylesheet" type="text/css" href="../CSS/dashboard.css?<?php echo time(); ?>" /> <!-- Helps when CSS isn't working due to cache -->
     <link rel="stylesheet" type="text/css" href="../CSS/universal.css?<?php echo time(); ?>" />
     <title>Dashboard</title>
-
 </head>
 
 <body>
@@ -56,7 +55,7 @@ require '../PHP/checkLogIn.php'
             </nav>
         </div>
     </div>
-
+    <script src="../JS/checkUserLoggedIn.js"></script>
     <script type="module" src="../JS/calLost.js"></script>
     <script type="module" src="../JS/calGained.js"></script>
 </body>

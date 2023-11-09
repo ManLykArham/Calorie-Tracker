@@ -95,6 +95,7 @@ require '../PHP/checkLogIn.php';
         document.getElementById('exDateID').valueAsDate = new Date();
         document.getElementById('exShowDateID').valueAsDate = new Date();
     </script> -->
+    <script src="../JS/checkUserLoggedIn.js"></script>
     <script type="module" src="../JS/exerciseCalories.js"></script>
     <script type="module" src="../JS/exCalAPI.js"></script>
 </body>

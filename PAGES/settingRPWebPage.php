@@ -19,10 +19,10 @@ require '../PHP/checkLogIn.php'
         <div class="resetPswrdContainer">
             <form method="POST" action="../PHP/resetPassword.php">
                 <div class="inputFields">
-                    <input type="password" placeholder="Old Password" name="confirmPasswrd">
-                    <input type="password" placeholder="New Password" name="newPasswrd">
-                    <input type="password" placeholder="Confirm new Password" name="confirmNewPasswrd">
-                    <button class="resetBttn" name="resetBttn">Reset!</button>
+                    <input type="password" id="oldPassword" placeholder="Old Password" name="confirmPasswrd">
+                    <input type="password" id="newPassword" placeholder="New Password" name="newPasswrd">
+                    <input type="password" id="confirmNewPassword" placeholder="Confirm new Password" name="confirmNewPasswrd">
+                    <button class="resetBttn" id="resetPasswordButton" name="resetBttn">Reset!</button>
                 </div>
             </form>
             <form action="../PAGES/settingWebPage.php">
@@ -51,7 +51,7 @@ require '../PHP/checkLogIn.php'
             </nav>
         </div>
     </div>
-    <script>
+    <!-- <script>
         // Alert what the error was after being validated in php
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');
@@ -73,8 +73,9 @@ require '../PHP/checkLogIn.php'
         } else if (error === 'no-user') {
             alert('No user found');
         }
-    </script>
-    <script type="module" src="../JS/exerciseCalories.js"></script>
+    </script> -->
+    <script src="../JS/checkUserLoggedIn.js"></script>
+    <script type="module" src="../JS/resetPassword.js"></script>
 </body>
 
 </html>

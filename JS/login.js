@@ -37,8 +37,6 @@ async function checkPasswordNEmail(userEmail, userPassword) {
 
 function retrieveData(userEmail) {
     return new Promise((resolve, reject) => {
-        let dbPassword;
-        let dbSalt;
 
         let userData = {
             "email": userEmail
@@ -75,6 +73,13 @@ async function hashPassword(password, salt) {
     const saltToObject = JSON.parse(salt);
     let saltBuffer = Uint8Array.from(saltToObject);
 
+    console.log("salt:\n");
+    console.log(salt);
+    console.log("salttoobject:\n");
+    console.log(saltToObject);
+    console.log("saltbuffer:\n");
+    console.log(saltBuffer);
+
     const key = await crypto.subtle.importKey(
         'raw',
         new TextEncoder().encode(password), { name: 'PBKDF2' },
@@ -94,6 +99,9 @@ async function hashPassword(password, salt) {
     const hashedPassword = Array.from(new Uint8Array(derivedKey))
         .map(byte => byte.toString(16).padStart(2, '0'))
         .join('');
+
+    console.log("hashedpassword:\n");
+    console.log(hashedPassword);
 
     return { hashedPassword };
 }

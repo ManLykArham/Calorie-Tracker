@@ -59,6 +59,7 @@ require '../PHP/checkLogIn.php'
             </nav>
         </div>
     </div>
+    <script src="../JS/checkUserLoggedIn.js"></script>
     <script src="../JS/setting.js"></script>
 </body>
 

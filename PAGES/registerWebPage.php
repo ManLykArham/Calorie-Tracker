@@ -12,7 +12,7 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form >
+            <form>
                 <h1 class="register">Create Account</h1>
                 <input type="text" placeholder="First Name" id="userName-SU" name="userName">
                 <input type="text" placeholder="Surname" id="userSurname-SU" name="userSurname">
@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="form-container sign-in">
-            <form >
+            <form>
                 <h1 class="register">Sign In</h1>
                 <input type="email" placeholder="Email" id="userEmail-SI" name="userEmail-SI">
                 <input type="password" placeholder="Password" id="userPassword-SI" name="userPassword-SI">
@@ -44,31 +44,37 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Alert what the error was after being validated in php
-        const urlParams = new URLSearchParams(window.location.search);
-        const error = urlParams.get('error');
-        if (error === 'emptyfields') {
-            alert('Empty Fields');
-        } else if (error === 'invalidemail') {
-            alert('Invalid Email');
-        } else if (error === 'invalidusername') {
-            alert('Invalid Username');
-        } else if (error === 'invalidusersurname') {
-            alert('Invalid User Surname');
-        } else if (error === 'usertaken') {
-            alert('User Taken: Email address already linked with another account :(');
-        } else if (error === 'wrongpassword') {
-            alert('Wrong Password');
-        } else if (error === 'no-user') {
-            alert('Please try again :)');
-        }
-    </script>
+    <script src="../JS/checkUserLoggedIn.js"></script>
     <script src="../JS/register.js"></script>
-    <script src="../JS/login.js"></script>
-    <script src="../JS/signup.js"></script>
-    
+    <script>
+        document.getElementById('signupBttn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Create a new script element
+            var script = document.createElement('script');
+            script.src = '../JS/signup.js'; // Path to your JavaScript file
+            script.type = 'text/javascript';
+
+            // Add the script to the document
+            document.body.appendChild(script);
+        });
+    </script>
+    <script>
+        document.getElementById('loginBttn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Create a new script element
+            var script = document.createElement('script');
+            script.src = '../JS/login.js'; // Path to your JavaScript file
+            script.type = 'text/javascript';
+
+            // Add the script to the document
+            document.body.appendChild(script);
+        });
+    </script>
+
+    <!-- <script src="../JS/signup.js"></script>
+    <script src="../JS/login.js"></script> -->
+
+
 </body>
 
 </html>
