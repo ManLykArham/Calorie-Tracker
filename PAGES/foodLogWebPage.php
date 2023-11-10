@@ -27,6 +27,7 @@ require '../PHP/checkLogIn.php';
                             <p>Food Name:</p>
                         </label>
                         <input type="text" name="foodName" id="mealName" value="brisket and fries">
+                        <div id="mealDropdown" class="meal-dropdown"></div>
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">

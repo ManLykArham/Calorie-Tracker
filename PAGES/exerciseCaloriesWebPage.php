@@ -25,19 +25,20 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseType">
                             <p>Your exercise:</p>
                         </label>
-                        <input type="text" name="exerciseType" id="etID" value="skiing">
+                        <input type="text" name="exerciseType" id="etID" placeholder="skiing">
+                        <div id="exerciseDropdown" class="exercise-dropdown"></div>
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Duration (mins):</p>
                         </label>
-                        <input type="text" name="exerciseDuration" id="edID" value="999">
+                        <input type="text" name="exerciseDuration" id="edID" placeholder="999">
                     </div>
                     <div class="userWeight">
                         <label for="userWeight ">
                             <p>Weight (pounds):</p>
                         </label>
-                        <input type="text" name="userWeight" id="uwID" value="160">
+                        <input type="text" name="userWeight" id="uwID" placeholder="160">
                     </div>
                     <div class="date">
                         <label for="date">

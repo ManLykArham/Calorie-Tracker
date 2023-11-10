@@ -1,49 +1,3 @@
-//Show list of exercises when showButton is clicked
-document.getElementById('showExercisesButtn').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    const showDate = document.getElementById('exShowDateID').value;
-
-    // Make an AJAX request to fetch exercise data
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../PHP/showExercise.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const exerciseData = JSON.parse(xhr.responseText);
-            displayExerciseData(exerciseData);
-        }
-    };
-
-    const data = `showDate=${showDate}&showExerciseButton=1`;
-    xhr.send(data);
-});
-
-//Show list of exercises when plage loads 
-window.addEventListener('load', function(e) {
-    e.preventDefault();
-
-    const showDate = document.getElementById('exShowDateID').value;
-
-    // Make an AJAX request to fetch exercise data
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../PHP/showExercise.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const exerciseData = JSON.parse(xhr.responseText);
-            displayExerciseData(exerciseData);
-        }
-    };
-
-
-    const data = `showDate=${showDate}&showExerciseButton=1`;
-    xhr.send(data);
-});
-
-//loadData() is referenced in foodValidation.js
 function loadData() {
     getData();
 }
@@ -154,3 +108,142 @@ function displayExerciseData(exerciseData) {
         });
     }
 };
+
+const exerciseInput = document.getElementById("etID");
+const exerciseDropdown = document.getElementById("exerciseDropdown");
+
+// Fetch exercise data from JSON file
+async function fetchExerciseData() {
+    try {
+        const response = await fetch("../JSON/exerciseData.json");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching exercise data:", error);
+        return [];
+    }
+}
+
+// Dummy exercise data for testing
+// const exercisess = ["Running", "Cycling", "Swimming", "Weightlifting", "Yoga", "Skiing"];
+// console.log(exercisess)
+
+
+// Function to populate dropdown with exercise names
+function populateDropdown(exercises) {
+    exerciseDropdown.innerHTML = "";
+
+    exercises.forEach(exercise => {
+        const exerciseItem = document.createElement("div");
+        exerciseItem.className = "exercise-dropdown-item";
+        exerciseItem.textContent = exercise;
+
+        exerciseItem.addEventListener("click", function() {
+            exerciseInput.value = exercise;
+            hideDropdown();
+        });
+
+        exerciseDropdown.appendChild(exerciseItem);
+    });
+
+    showDropdown();
+}
+
+// Function to show the dropdown
+function showDropdown() {
+    const inputRect = exerciseInput.getBoundingClientRect();
+    exerciseDropdown.style.top = inputRect.bottom + "px";
+    exerciseDropdown.style.left = inputRect.left + "px";
+    exerciseDropdown.classList.add("show");
+}
+
+// Function to hide the dropdown
+function hideDropdown() {
+    exerciseDropdown.classList.remove("show");
+}
+
+// Function to update the dropdown based on user input
+async function updateDropdown(filter) {
+    fetchExerciseData().then(exercises => {
+        const filteredExercises = exercises.filter(exercise =>
+            exercise.toLowerCase().includes(filter.toLowerCase())
+        );
+        populateDropdown(filteredExercises);
+    });
+}
+
+//Show list of exercises when plage loads 
+window.addEventListener('load', function(e) {
+    e.preventDefault();
+    const showDate = document.getElementById('exShowDateID').value;
+
+    // Make an AJAX request to fetch exercise data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showExercise.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const exerciseData = JSON.parse(xhr.responseText);
+            displayExerciseData(exerciseData);
+        }
+    };
+
+
+    const data = `showDate=${showDate}&showExerciseButton=1`;
+    xhr.send(data);
+});
+
+// Event listener for input changes
+exerciseInput.addEventListener("input", function() {
+    // Initial fetch and populate dropdown
+    fetchExerciseData().then(exercises => {
+        populateDropdown(exercises);
+    });
+    const filter = exerciseInput.value;
+    updateDropdown(filter);
+});
+
+exerciseInput.addEventListener("click", function() {
+    // Initial fetch and populate dropdown
+    fetchExerciseData().then(exercises => {
+        populateDropdown(exercises);
+    });
+});
+
+// Event listener to close the dropdown when clicking outside of it
+document.addEventListener("click", function(event) {
+    if (!event.target.closest(".exercise-dropdown") && event.target !== exerciseInput) {
+        hideDropdown();
+    }
+});
+
+
+
+// exerciseInput.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     const exTypeList = document.getElementById("ulExType");
+//     exTypeList.style.display = "flex";
+// })
+
+//Show list of exercises when showButton is clicked
+document.getElementById('showExercisesButtn').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const showDate = document.getElementById('exShowDateID').value;
+
+    // Make an AJAX request to fetch exercise data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showExercise.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const exerciseData = JSON.parse(xhr.responseText);
+            displayExerciseData(exerciseData);
+        }
+    };
+
+    const data = `showDate=${showDate}&showExerciseButton=1`;
+    xhr.send(data);
+});

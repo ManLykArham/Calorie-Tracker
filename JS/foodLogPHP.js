@@ -1,46 +1,3 @@
-//Show list of meals when showButton is clicked
-document.getElementById('showMealBttn').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    const showDate = document.getElementById('showLogID').value;
-
-    // Make an AJAX request to fetch exercise data
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../PHP/showFoodLog.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const foodData = JSON.parse(xhr.responseText);
-            displayFoodLogData(foodData);
-        }
-    };
-
-    const data = `showLog=${showDate}&showMealButton=1`;
-    xhr.send(data);
-});
-//Show list of meals when plage loads 
-window.addEventListener('load', function(e) {
-    e.preventDefault();
-
-    const showDate = document.getElementById('showLogID').value;
-
-    // Make an AJAX request to fetch exercise data
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../PHP/showFoodLog.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const foodData = JSON.parse(xhr.responseText);
-            displayFoodLogData(foodData);
-        }
-    };
-
-    const data = `showLog=${showDate}&showMealButton=1`;
-    xhr.send(data);
-});
-
 //loadData() is referenced in foodValidation.js
 function loadMealData() {
     getMealData();
@@ -49,7 +6,7 @@ function loadMealData() {
 function getMealData() {
     const showDate = document.getElementById('showLogID').value;
 
-    // Make an AJAX request to fetch exercise data
+    // Make an AJAX request to fetch meal data
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '../PHP/showFoodLog.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -79,7 +36,7 @@ function hmlRequest(mealID) {
         }).then((response) => response.text())
         .then(() => {
             var script = document.createElement('script');
-            script.src = '../JS/foodLogPHP.js'; // Replace with the actual path to your exerciseCalories.js file
+            script.src = '../JS/foodLogPHP.js'; // Replace with the actual path to your mealCalories.js file
             script.type = 'text/javascript';
 
             script.onload = function() {
@@ -145,3 +102,139 @@ function displayFoodLogData(foodData) {
         });
     }
 };
+
+const mealInput = document.getElementById("mealName");
+const mealDropdown = document.getElementById("mealDropdown");
+
+// Fetch meal data from JSON file
+async function fetchMealData() {
+    try {
+        const response = await fetch("../JSON/exerciseData.json");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching meal data:", error);
+        return [];
+    }
+}
+
+
+// Dummy meal data for testing
+// const mealss = ["Running", "Cycling", "Swimming", "Weightlifting", "Yoga", "Skiing"];
+// console.log(mealss)
+
+
+// Function to populate dropdown with meal names
+function populateDropdown(meals) {
+    mealDropdown.innerHTML = "";
+
+    meals.forEach(meal => {
+        const mealItem = document.createElement("div");
+        mealItem.className = "meal-dropdown-item";
+        mealItem.textContent = meal;
+
+        mealItem.addEventListener("click", function() {
+            mealInput.value = meal;
+            hideDropdown();
+        });
+
+        mealDropdown.appendChild(mealItem);
+    });
+
+    showDropdown();
+}
+
+// Function to show the dropdown
+function showDropdown() {
+    const inputRect = mealInput.getBoundingClientRect();
+    mealDropdown.style.top = inputRect.bottom + "px";
+    mealDropdown.style.left = inputRect.left + "px";
+    mealDropdown.classList.add("showMeal");
+    console.log(mealDropdown)
+}
+
+// Function to hide the dropdown
+function hideDropdown() {
+    mealDropdown.classList.remove("showMeal");
+}
+
+// Function to update the dropdown based on user input
+async function updateDropdown(filter) {
+    fetchMealData().then(meals => {
+        const filteredMeals = meals.filter(meal =>
+            meal.toLowerCase().includes(filter.toLowerCase())
+        );
+        populateDropdown(filteredMeals);
+    });
+}
+
+// Event listener for input changes
+mealInput.addEventListener("input", function() {
+    // Initial fetch and populate dropdown
+    fetchMealData().then(meals => {
+        populateDropdown(meals);
+    });
+    const filter = mealInput.value;
+    updateDropdown(filter);
+});
+
+mealInput.addEventListener("click", function() {
+    // Initial fetch and populate dropdown
+    fetchMealData().then(meals => {
+        populateDropdown(meals);
+    });
+});
+
+// Event listener to close the dropdown when clicking outside of it
+document.addEventListener("click", function(event) {
+    if (!event.target.closest(".meal-dropdown") && event.target !== mealInput) {
+        hideDropdown();
+    }
+});
+
+
+
+
+//Show list of meals when plage loads 
+window.addEventListener('load', function(e) {
+    e.preventDefault();
+
+    const showDate = document.getElementById('showLogID').value;
+
+    // Make an AJAX request to fetch meal data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showFoodLog.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const foodData = JSON.parse(xhr.responseText);
+            displayFoodLogData(foodData);
+        }
+    };
+
+    const data = `showLog=${showDate}&showMealButton=1`;
+    xhr.send(data);
+});
+
+//Show list of meals when showButton is clicked
+document.getElementById('showMealBttn').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const showDate = document.getElementById('showLogID').value;
+
+    // Make an AJAX request to fetch meal data
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../PHP/showFoodLog.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const foodData = JSON.parse(xhr.responseText);
+            displayFoodLogData(foodData);
+        }
+    };
+
+    const data = `showLog=${showDate}&showMealButton=1`;
+    xhr.send(data);
+});

@@ -102,6 +102,71 @@ input[type="datetime-local"]:focus {
     border-color: #9f76f6;
 }
 
+
+/* .ulExTypeList {
+    border: 1px solid rgb(0, 123, 255);
+    width: 6.5vw;
+    height: 5vh;
+    margin: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: none;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.listExType {
+    margin: 10px;
+} */
+
+.exercise-dropdown {
+    display: none;
+    width: 15vw;
+    height: 6vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid #9f76f6;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    /* background-color: rgb(17, 16, 16, 0.3); */
+}
+
+.exercise-dropdown-item:hover {
+    background: radial-gradient( circle, rgba(235, 0, 255, 0.8) 0%, rgba(188, 111, 255, 0.8) 51%, rgba(93, 0, 255, 0.8) 100%);
+}
+
+.meal-dropdown {
+    display: none;
+    width: 15vw;
+    height: 6vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid #9f76f6;
+}
+
+.showMeal {
+    display: flex;
+    flex-direction: column;
+}
+
+.meal-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    /* background-color: rgb(17, 16, 16, 0.3); */
+}
+
+.meal-dropdown-item:hover {
+    background: radial-gradient( circle, rgba(235, 0, 255, 0.8) 0%, rgba(188, 111, 255, 0.8) 51%, rgba(93, 0, 255, 0.8) 100%);
+}
+
 .exerciseApi {
     width: auto;
     height: 7vh;
