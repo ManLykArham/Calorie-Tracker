@@ -18,23 +18,37 @@ require '../PHP/checkLogIn.php';
 <body>
     <div class="container">
         <h1>Food Log</h1>
-
         <div class="divOrder">
             <form method="POST" action="../PHP/foodLog.php">
                 <div class="exerciseApi">
+                    <div class="mealDiv">
+                    <label for="mealSelector">Meal Type:</label>
+                    <select class="mealSelector" id="mealSelector">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="snack">Snack</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="meal">Meal</option>
+                    </select>
+                    </div>
                     <div class="exerciseType">
-                        <label for="exerciseType">
+                        <!-- <label for="exerciseType">
                             <p>Food Name:</p>
                         </label>
                         <input type="text" name="foodName" id="mealName" value="brisket and fries">
-                        <div id="mealDropdown" class="meal-dropdown"></div>
+                         -->
+                         <label for="exerciseType">
+                            <p>Meal:</p>
+                        </label>
+                         <textarea class="storedMealNameCSS" name="storedMealName" id="mealName" placeholder="Yogurt with granola and berries..."></textarea>
+                         <div id="mealDropdown" class="meal-dropdown"></div>
                     </div>
-                    <div class="exerciseDuration">
+                    <!-- <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Amount (grams):</p>
                         </label>
                         <input type="text" name="foodAmount" id="mealAmount" value="100">
-                    </div>
+                    </div> -->
                     <div class="date">
                         <label for="date">
                             <p>Date:</p>

@@ -1,3 +1,64 @@
+// const meals = [
+//     "Pancakes with maple syrup",
+//     "Omelette with toast",
+//     "Yogurt with granola and berries",
+//     "Bacon and eggs",
+//     "Avocado toast",
+//     "Sandwiches",
+//     "Caesar salad",
+//     "Pizza",
+//     "Sushi",
+//     "Burritos or tacos",
+//     "Grilled chicken with vegetables",
+//     "Spaghetti with meatballs",
+//     "Stir-fried noodles or rice with   vegetables and protein",
+//     "Roast beef with mashed potatoes",
+//     "Fish and chips",
+//     "Popcorn",
+//     "Fruit slices",
+//     "Nuts",
+//     "Cheese and crackers",
+//     "Hummus with carrot sticks",
+//     "Chocolate cake",
+//     "Ice cream",
+//     "Apple pie",
+//     "Cheesecake",
+//     "Brownies",
+//     "checkingWhetherThisIsWorking"
+// ];
+
+// const apiKey = 'uqvXuwvG+dMRJNNvCK/eDw==MSB3hIFeNEbBSWx3';
+// const url = "https://api.api-ninjas.com/v1/nutrition?query=";
+
+// async function checkMealsInDatabase() {
+//     const mealsInDatabase = [];
+//     const mealsNotInDatabase = [];
+
+//     for (const meal of meals) {
+//         const response = await fetch(`${url}${meal}`, {
+//             method: "GET",
+//             headers: {
+//                 "X-Api-Key": apiKey,
+//                 "Content-Type": "application/json",
+//             },
+
+//         });
+
+//         const data = await response.json();
+
+//         if (response.status === 200 && data.some(foodItem => foodItem.name.toLowerCase() === meal.toLowerCase())) {
+//             // Meal is in the database
+//             mealsInDatabase.push(meal);
+//         } else {
+//             // Meal is not in the database
+//             mealsNotInDatabase.push(meal);
+//         }
+//     }
+
+//     console.log("Meals in the database:", mealsInDatabase);
+//     console.log("Meals not in the database:", mealsNotInDatabase);
+// }
+
 //loadData() is referenced in foodValidation.js
 function loadMealData() {
     getMealData();
@@ -68,16 +129,16 @@ function displayFoodLogData(foodData) {
                     <input type="time" name="storedMealTime" value="${food.logTime}" readonly>
                 </li>
                 <li class="listItem">
-                    <label for="storedMealName">
-                        <p>Food Name:</p>
-                    </label>
-                    <input type="text" name="storedMealName" value="${food.mealName}" readonly>
-                </li>
-                <li class="listItem">
                     <label for="storedAmount">
                         <p>Amount (grams):</p>
                     </label>
-                    <input type="text" name="storedAmount" value="${food.amountGrams}" readonly>
+                    <input type="text" name="storedAmount" value="${food.mealType}" readonly>
+                </li>
+                <li class="listItem">
+                    <label for="storedMealName">
+                        <p>Food Name:</p>
+                    </label>
+                    <textarea class="storedMealNameCSS" name="storedMealName" readonly>${food.mealName}</textarea>
                 </li>
                 <li class="listItem">
                     <label for="storedCaloriesBurned">
@@ -109,7 +170,7 @@ const mealDropdown = document.getElementById("mealDropdown");
 // Fetch meal data from JSON file
 async function fetchMealData() {
     try {
-        const response = await fetch("../JSON/exerciseData.json");
+        const response = await fetch("../JSON/mealData.json");
         const data = await response.json();
         return data;
     } catch (error) {
@@ -198,6 +259,7 @@ document.addEventListener("click", function(event) {
 //Show list of meals when plage loads 
 window.addEventListener('load', function(e) {
     e.preventDefault();
+    //checkMealsInDatabase();
 
     const showDate = document.getElementById('showLogID').value;
 

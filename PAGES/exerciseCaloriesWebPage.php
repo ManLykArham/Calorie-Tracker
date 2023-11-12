@@ -17,7 +17,6 @@ require '../PHP/checkLogIn.php';
 <body>
     <div class="container">
         <h1>Exercise Log</h1>
-
         <div class="divOrder">
             <form method="POST" action="../PHP/exerciseCalories.php">
                 <div class="exerciseApi">
@@ -32,7 +31,7 @@ require '../PHP/checkLogIn.php';
                         <label for="exerciseDuration">
                             <p>Duration (mins):</p>
                         </label>
-                        <input type="text" name="exerciseDuration" id="edID" placeholder="999">
+                        <input type="text" name="exerciseDuration" id="edID" placeholder="60">
                     </div>
                     <div class="userWeight">
                         <label for="userWeight ">

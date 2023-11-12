@@ -1,3 +1,58 @@
+// const exercises = [
+//     "Running",
+//     "Cycling",
+//     "Swimming",
+//     "Weightlifting",
+//     "Yoga",
+//     "Skiing",
+//     "Jumping Rope",
+//     "Walking",
+//     "Rowing",
+//     "Hiking",
+//     "Pilates",
+//     "CrossFit",
+//     "Zumba",
+//     "Rock Climbing",
+//     "Boxing",
+//     "Dancing",
+//     "Aerobics",
+//     "Martial Arts (e.g., Karate, Taekwondo)",
+//     "Paddleboarding",
+//     "Surfing",
+//     "checkingWhetherThisIsWorking"
+
+// ];
+
+// const apiKey = 'uqvXuwvG+dMRJNNvCK/eDw==MSB3hIFeNEbBSWx3';
+// const url = "https://api.api-ninjas.com/v1/caloriesburned?activity=";
+
+// async function checkExercisesInDatabase() {
+//     const exercisesInDatabase = [];
+//     const exercisesNotInDatabase = [];
+
+//     for (const exercise of exercises) {
+//         const response = await fetch(`${url}${exercise}`, {
+//             method: "GET",
+//             headers: {
+//                 "X-Api-Key": apiKey,
+//                 "Content-Type": "application/json",
+//             },
+
+//         });
+
+//         if (response.status === 200) {
+//             // Exercise is in the database
+//             exercisesInDatabase.push(exercise);
+//         } else {
+//             // Exercise is not in the database
+//             exercisesNotInDatabase.push(exercise);
+//         }
+//     }
+
+//     console.log("Exercises in the database:", exercisesInDatabase);
+//     console.log("Exercises not in the database:", exercisesNotInDatabase);
+// }
+
 function loadData() {
     getData();
 }
@@ -172,8 +227,17 @@ async function updateDropdown(filter) {
     });
 }
 
+function checkInputNDDropdown(exerciseName) {
+    fetchExerciseData().then(exercises => {
+        const filteredExercises = exercises.filter(exercise =>
+            exercise.toLowerCase().includes(filter.toLowerCase())
+        );
+    });
+}
+
 //Show list of exercises when plage loads 
 window.addEventListener('load', function(e) {
+    //checkExercisesInDatabase();
     e.preventDefault();
     const showDate = document.getElementById('exShowDateID').value;
 
@@ -200,9 +264,11 @@ exerciseInput.addEventListener("input", function() {
     fetchExerciseData().then(exercises => {
         populateDropdown(exercises);
     });
-    const filter = exerciseInput.value;
+
+    const filter = exerciseInput.value.toLowerCase();
     updateDropdown(filter);
 });
+
 
 exerciseInput.addEventListener("click", function() {
     // Initial fetch and populate dropdown
@@ -211,12 +277,21 @@ exerciseInput.addEventListener("click", function() {
     });
 });
 
-// Event listener to close the dropdown when clicking outside of it
 document.addEventListener("click", function(event) {
     if (!event.target.closest(".exercise-dropdown") && event.target !== exerciseInput) {
+        const selectedExercise = exerciseInput.value;
+        const dropdownExercises = Array.from(exerciseDropdown.children)
+            .map(item => item.textContent);
+
+        if (!dropdownExercises.includes(selectedExercise) && selectedExercise !== "") {
+            exerciseInput.value = "";
+            alert("Please select an exercise from the dropdown menu :)")
+        }
+
         hideDropdown();
     }
 });
+
 
 
 

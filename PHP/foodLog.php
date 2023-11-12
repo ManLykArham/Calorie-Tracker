@@ -3,7 +3,10 @@
 // if (isset($_POST)) {
 //     $data = file_get_contents("php://input");
 //     $meal = json_decode($data, true);
-//     print_r($meal["name"]);
+//     echo $meal["type"];
+//     echo $meal["name"];
+//     echo $meal["date"];
+//     echo $meal["caloriesGained"];
 // }
 
 if (isset($_POST)) {
@@ -14,13 +17,12 @@ if (isset($_POST)) {
     $meal = json_decode($data, true);
 
     // echo $meal;
-
+    $foodType = $meal["type"];
     $foodName = $meal["name"];
-    $foodAmount = $meal["amount"];
     $date = $meal["date"];
     $caloriesGained = $meal["caloriesGained"];
 
-    storeVariablesFood($foodName, $foodAmount, $caloriesGained, $date);
+    storeVariablesFood($foodType, $foodName, $caloriesGained, $date);
 }
 //     $cURL = curl_init();
 

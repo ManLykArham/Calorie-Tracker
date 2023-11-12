@@ -74,7 +74,8 @@ p {
 input[type="text"],
 input[type="date"],
 input[type="time"],
-input[type="datetime-local"] {
+input[type="datetime-local"],
+.mealSelector {
     width: auto;
     padding: 12px 20px;
     margin: 8px;
@@ -82,13 +83,14 @@ input[type="datetime-local"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    box-sizing: border-box;
     outline: none;
     border: none;
     background-color: transparent;
     color: #fff;
     border: 1px solid #999;
     transition: all 0.275s ease;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 input[type="text"]:hover,
@@ -98,8 +100,15 @@ input[type="date"]:focus,
 input[type="time"]:hover,
 input[type="time"]:focus,
 input[type="datetime-local"]:hover,
-input[type="datetime-local"]:focus {
+input[type="datetime-local"]:focus,
+.mealSelector:hover,
+.mealSelector:focus {
     border-color: #9f76f6;
+}
+
+option {
+    background-color: #300450;
+    border-radius: none;
 }
 
 
@@ -165,6 +174,15 @@ input[type="datetime-local"]:focus {
 
 .meal-dropdown-item:hover {
     background: radial-gradient( circle, rgba(235, 0, 255, 0.8) 0%, rgba(188, 111, 255, 0.8) 51%, rgba(93, 0, 255, 0.8) 100%);
+}
+
+.mealDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 15px;
 }
 
 .exerciseApi {
@@ -303,6 +321,22 @@ input[type="datetime-local"]:focus {
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
     border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+textarea {
+    margin-top: 5px;
+    padding: 15px;
+    width: 9vw;
+    height: 5vh;
+    background-color: transparent;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+textarea:hover {
+    border: 1px solid #9f76f6;
+    transition: all 0.275s ease;
 }
 
 .listItem {
