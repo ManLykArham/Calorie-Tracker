@@ -114,7 +114,7 @@ function displayFoodLogData(foodData) {
     container.innerHTML = ''; // Clear existing data
 
     if (foodData.length === 0) {
-        container.innerHTML = '<div class="noLogTextContainer"><p class="noLogText">There are no meals logged in for this day :)</p></div>';
+        container.innerHTML = '<p class="noText">There are no meals logged in for this day :)</p>';
     } else {
         foodData.forEach(function(food) {
             const trackedFoodList = document.createElement('ul');
@@ -126,25 +126,25 @@ function displayFoodLogData(foodData) {
                     <label for="storedMealTime">
                         <p>Time:</p>
                     </label>
-                    <input type="time" name="storedMealTime" value="${food.logTime}" readonly>
+                    <input type="time" class="inputType" name="storedMealTime" value="${food.logTime}" readonly>
                 </li>
                 <li class="listItem">
                     <label for="storedAmount">
                         <p>Amount (grams):</p>
                     </label>
-                    <input type="text" name="storedAmount" value="${food.mealType}" readonly>
+                    <input type="text" class="inputType" name="storedAmount" value="${food.mealType}" readonly>
                 </li>
                 <li class="listItem">
                     <label for="storedMealName">
                         <p>Food Name:</p>
                     </label>
-                    <textarea class="storedMealNameCSS" name="storedMealName" readonly>${food.mealName}</textarea>
+                    <textarea class="inputType" name="storedMealName" readonly>${food.mealName}</textarea>
                 </li>
                 <li class="listItem">
                     <label for="storedCaloriesBurned">
                         <p>Calories Gained (kcal):</p>
                     </label>
-                    <input type="text" name="storedCaloriesGained" value="${food.caloriesGained}" readonly>
+                    <input type="text" class="inputType" name="storedCaloriesGained" value="${food.caloriesGained}" readonly>
                 </li>
                 <li class="listItem">
                     <input type="hidden" name="foodLogID" id="mealID" value="${food.foodLogID}">

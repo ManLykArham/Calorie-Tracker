@@ -112,7 +112,7 @@ function displayExerciseData(exerciseData) {
     container.innerHTML = ''; // Clear existing data
 
     if (exerciseData.length === 0) {
-        container.innerHTML = '<div class="noExerciseTextContainer"><p class="noExercisesText">There are no exercises for this day :)</p></div>';
+        container.innerHTML = '<p class="noText">There are no exercises for this day :)</p>';
     } else {
         exerciseData.forEach(function(exercise) {
             const trackedCaloriesList = document.createElement('ul');
@@ -207,8 +207,8 @@ function populateDropdown(exercises) {
 // Function to show the dropdown
 function showDropdown() {
     const inputRect = exerciseInput.getBoundingClientRect();
-    exerciseDropdown.style.top = inputRect.bottom + "px";
-    exerciseDropdown.style.left = inputRect.left + "px";
+    exerciseDropdown.style.top = inputRect.bottom + "1000px";
+    exerciseDropdown.style.left = inputRect.left + "1000px";
     exerciseDropdown.classList.add("show");
 }
 

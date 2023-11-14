@@ -47,7 +47,7 @@ require '../PHP/checkLogIn.php';
                     </div>
 
                     <div class="trackCaloriesbttn">
-                        <button class="trackButton" id="trackCalBttnID" name="trackCaloriesButton">Track</button>
+                        <button class="trackButton" id="trackCalBttnID" name="trackCaloriesButton"><p class="trackText">Track</p></button>
                     </div>
                 </div>
             </form>

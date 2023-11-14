@@ -17,7 +17,7 @@ require '../PHP/checkLogIn.php'
     <div class="container">
         <h1>Setting</h1>
         <div class="settingContainer">
-            <form action="../PAGES/settingRPWebPage.php">
+            <form action="../PAGES/settingRPWebPage.php" >
 
                 <div class="resetPassword">
                     <button id="resetPasswordBttn" class="resBttn">Reset Password</button>

@@ -50,14 +50,14 @@ require '../PHP/checkLogIn.php';
                         <input type="text" name="foodAmount" id="mealAmount" value="100">
                     </div> -->
                     <div class="date">
-                        <label for="date">
+                        <label for="date" class="mealDateLabel">
                             <p>Date:</p>
                         </label>
-                        <input type="datetime-local" name="dateLog" id="mealDateID" value="<?php echo date('Y-m-d H:i'); ?>">
+                        <input type="datetime-local" class="mealDateInput" name="dateLog" id="mealDateID" value="<?php echo date('Y-m-d H:i'); ?>">
                     </div>
 
                     <div class="trackCaloriesbttn">
-                        <button class="trackButton" id="trackFoodBttnID" name="trackFoodButton">Track</button>
+                        <button class="trackButton" id="trackFoodBttnID" name="trackFoodButton"><p class="trackText">Track</p></button>
                     </div>
                 </div>
             </form>
