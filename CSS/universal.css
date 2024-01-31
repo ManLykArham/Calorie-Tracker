@@ -11,6 +11,65 @@ body {
     justify-content: center;
     /* Ensure the container takes full width */
     min-height: 100vh;
+    min-width: 100vw;
+}
+
+.container {
+    width: auto;
+    height: auto;
+    margin: 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+    /*Orgniszing all sub-containers*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container::before {
+    /* ::before, allows to add that pink color before the container -> on the left side (change filter: blur(1px)) to understand*/
+    content: "";
+    position: absolute;
+    background-color: #c800ffee;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    left: -20%;
+    top: 10%;
+    z-index: -1000;
+    /*z-index decides which element goes on top, high z-index value (1000) element on TOP, low z-index value (-1000) element will be at the bottom */
+}
+
+.container::after {
+    /* ::after, allows to add that blue color after the container -> on the right side (change filter: blur(1px)) to understand*/
+    content: "";
+    position: absolute;
+    background-color: #1200d3;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    right: -20%;
+    bottom: -10%;
+    z-index: -1000;
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
 }
 
 img {
@@ -42,4 +101,197 @@ input[type=datetime-local] {
 
 ::-webkit-scrollbar-corner {
     background-color: transparent;
+}
+
+.navBar {
+    width: 65vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    padding: 15px;
+    list-style: none;
+    color: #fff;
+    background: rgba(255, 2, 255, 0.1);
+    border: 1px solid red;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix( in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+ul {
+    list-style: none;
+}
+
+.navBarImg {
+    padding: 3px;
+}
+
+.navBarImg:hover {
+    padding: 7px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.selected {
+    background-color: rgb(124, 180, 212, 0.3);
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 720px) {
+    /* Adjust styles for smaller screens */
+    .container {
+        position: center;
+        max-width: 720px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"] {
+        height: 4vh;
+    }
+    .exerciseApi {
+        width: 60vw;
+        height: 40vh;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+    .trackButton {
+        position: absolute;
+        top: 88%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    textarea {
+        margin-top: 5px;
+        padding: 15px;
+        width: 19vw;
+        height: 4vh;
+    }
+    .mealDateLabel {
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .mealDateInput {
+        position: absolute;
+        top: 63%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .trackedContainer {
+        width: 50vw;
+        grid-template-columns: 1fr;
+    }
+    /* Add more styles as needed for smaller screens */
+}
+
+@media only screen and (max-width: 623px) {
+    /* Adjust styles for smaller screens */
+    .container {
+        position: center;
+        max-width: 623px;
+        max-height: auto;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="time"] {
+        width: 19vw;
+        height: 4vh;
+        padding: 10px;
+    }
+    .exerciseApi {
+        width: 60vw;
+        height: 40vh;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+    .trackButton {
+        position: absolute;
+        top: 88%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 10%;
+    }
+    .trackText {
+        margin: -9px;
+        color: #fff;
+    }
+    textarea {
+        padding: 15px;
+        width: 19vw;
+        height: 4vh;
+    }
+    .mealDateLabel {
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .mealDateInput {
+        position: absolute;
+        top: 63%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .meal-dropdown {
+        width: 22vw;
+        height: 20vh;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .trackedContainer {
+        width: 50vw;
+        grid-template-columns: 1fr;
+    }
+    .settingContainer {
+        display: grid;
+        grid-template-columns: repeat(2, minmax( 1fr));
+        grid-gap: 0px;
+        max-width: 75vw;
+        max-height: 80vh;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    /* Adjust styles for smaller screens */
+    .container {
+        position: center;
+        max-width: 450px;
+        max-height: auto;
+    }
+    .trackedContainer {
+        width: 70vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .individualListContainer {
+        width: 55vw;
+    }
+    input[type=text],
+    input[type=time] {
+        width: 30vw;
+    }
+    .settingContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 75vw;
+        max-height: 80vh;
+    }
 }

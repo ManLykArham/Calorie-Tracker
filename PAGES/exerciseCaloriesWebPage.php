@@ -17,7 +17,6 @@ require '../PHP/checkLogIn.php';
 <body>
     <div class="container">
         <h1>Exercise Log</h1>
-
         <div class="divOrder">
             <form method="POST" action="../PHP/exerciseCalories.php">
                 <div class="exerciseApi">
@@ -26,6 +25,7 @@ require '../PHP/checkLogIn.php';
                             <p>Your exercise:</p>
                         </label>
                         <input type="text" name="exerciseType" id="etID" placeholder="skiing">
+                        <div id="exerciseDropdown" class="exercise-dropdown"></div>
                     </div>
                     <div class="exerciseDuration">
                         <label for="exerciseDuration">
@@ -47,7 +47,7 @@ require '../PHP/checkLogIn.php';
                     </div>
 
                     <div class="trackCaloriesbttn">
-                        <button class="trackButton" id="trackCalBttnID" name="trackCaloriesButton">Track</button>
+                        <button class="trackButton" id="trackCalBttnID" name="trackCaloriesButton"><p class="trackText">Track</p></button>
                     </div>
                 </div>
             </form>
@@ -61,7 +61,7 @@ require '../PHP/checkLogIn.php';
                     </div>
 
                     <div class="showExercisesBttn">
-                        <button class="showButton" id="showExercisesBttn" name="showExerciseButton">Show Exercises</button>
+                        <button class="showButton" id="showExercisesButtn" name="showExerciseButton">Show Exercises</button>
                     </div>
                 </div>
             </form>
@@ -95,7 +95,9 @@ require '../PHP/checkLogIn.php';
         document.getElementById('exDateID').valueAsDate = new Date();
         document.getElementById('exShowDateID').valueAsDate = new Date();
     </script> -->
+    <script src="../JS/checkUserLoggedIn.js"></script>
     <script type="module" src="../JS/exerciseCalories.js"></script>
+    <script type="module" src="../JS/exCalAPI.js"></script>
 </body>
 
 </html>

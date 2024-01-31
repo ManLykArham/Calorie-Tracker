@@ -1,11 +1,22 @@
 <?php
-if (isset($_POST['deleteMeal'])) {
+if (isset($_POST)) {
+    $data = file_get_contents("php://input");
+    $meal = json_decode($data, true);
+    echo $mealID = $meal["mealID"];
+    deleteMealVariables($mealID);
+} else {
+    echo "POST Request Failed.";
+}
+
+
+function deleteMealVariables($mealID)
+{
 
     require '../PHP/dbConnection.php';
     session_start();
     $userID = $_SESSION['userID'];
 
-    $foodLogID = $_POST['foodLogID'];
+    $foodLogID = $mealID;
 
     $sql = "DELETE FROM foodlog WHERE foodLogID = ? AND userID = ?";
     $stmt = mysqli_stmt_init($conn);

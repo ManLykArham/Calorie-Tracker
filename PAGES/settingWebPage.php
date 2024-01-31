@@ -17,25 +17,25 @@ require '../PHP/checkLogIn.php'
     <div class="container">
         <h1>Setting</h1>
         <div class="settingContainer">
-            <form action="../PAGES/settingRPWebPage.php">
+            <form action="../PAGES/settingRPWebPage.php" >
 
                 <div class="resetPassword">
-                    <button class="resBttn">Reset Password</button>
+                    <button id="resetPasswordBttn" class="resBttn">Reset Password</button>
                 </div>
             </form>
             <form method="POST" action="../PHP/setting.php">
                 <div class="deleteAccount">
-                    <button class="delBttn" name="delAccount">Delete Account</button>
+                    <button id="delAccButton" class="delBttn" name="delAccount">Delete Account</button>
                 </div>
             </form>
             <form method="POST" action="../PHP/setting.php">
                 <div class="resetData">
-                    <button class="resetDataBttn" name="resetDataBttn">Reset Data</button>
+                    <button class="resetDataBttn" id="resetDataBttn" name="resetDataBttn">Reset Data</button>
                 </div>
             </form>
             <form method="POST" action="../PHP/setting.php">
                 <div class="logout">
-                    <button class="logBttn" name="logoutBttn">Log Out</button>
+                    <button id="logoutButton" class="logBttn" name="logoutBttn">Log Out</button>
                 </div>
             </form>
         </div>
@@ -59,7 +59,8 @@ require '../PHP/checkLogIn.php'
             </nav>
         </div>
     </div>
-    <script type="module" src="../JS/exerciseCalories.js"></script>
+    <script src="../JS/checkUserLoggedIn.js"></script>
+    <script src="../JS/setting.js"></script>
 </body>
 
 </html>

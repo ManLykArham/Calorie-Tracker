@@ -18,31 +18,46 @@ require '../PHP/checkLogIn.php';
 <body>
     <div class="container">
         <h1>Food Log</h1>
-
         <div class="divOrder">
             <form method="POST" action="../PHP/foodLog.php">
                 <div class="exerciseApi">
+                    <div class="mealDiv">
+                    <label for="mealSelector">Meal Type:</label>
+                    <select class="mealSelector" id="mealSelector">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="snack">Snack</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="meal">Meal</option>
+                    </select>
+                    </div>
                     <div class="exerciseType">
-                        <label for="exerciseType">
+                        <!-- <label for="exerciseType">
                             <p>Food Name:</p>
                         </label>
-                        <input type="text" name="foodName" id="etID" placeholder="brisket and fries">
+                        <input type="text" name="foodName" id="mealName" value="brisket and fries">
+                         -->
+                         <label for="exerciseType">
+                            <p>Meal:</p>
+                        </label>
+                         <textarea class="storedMealNameCSS" name="storedMealName" id="mealName" placeholder="Yogurt with granola and berries..."></textarea>
+                         <div id="mealDropdown" class="meal-dropdown"></div>
                     </div>
-                    <div class="exerciseDuration">
+                    <!-- <div class="exerciseDuration">
                         <label for="exerciseDuration">
                             <p>Amount (grams):</p>
                         </label>
-                        <input type="text" name="foodAmount" id="edID" placeholder="100">
-                    </div>
+                        <input type="text" name="foodAmount" id="mealAmount" value="100">
+                    </div> -->
                     <div class="date">
-                        <label for="date">
+                        <label for="date" class="mealDateLabel">
                             <p>Date:</p>
                         </label>
-                        <input type="datetime-local" name="dateLog" id="exDateID" value="<?php echo date('Y-m-d H:i'); ?>">
+                        <input type="datetime-local" class="mealDateInput" name="dateLog" id="mealDateID" value="<?php echo date('Y-m-d H:i'); ?>">
                     </div>
 
                     <div class="trackCaloriesbttn">
-                        <button class="trackButton" id="trackFoodBttnID" name="trackFoodButton">Track</button>
+                        <button class="trackButton" id="trackFoodBttnID" name="trackFoodButton"><p class="trackText">Track</p></button>
                     </div>
                 </div>
             </form>
@@ -91,8 +106,9 @@ require '../PHP/checkLogIn.php';
         document.getElementById('exDateID').valueAsDate = new Date();
         document.getElementById('exShowDateID').valueAsDate = new Date();
     </script> -->
-    <script type="module" src="../JS/foodLog.js"></script>
+    <script src="../JS/checkUserLoggedIn.js"></script>
     <script type="module" src="../JS/foodLogPHP.js"></script>
+    <script type="module" src="../JS/foodValidation.js"></script>
 </body>
 
 </html>

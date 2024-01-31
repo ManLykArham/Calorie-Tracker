@@ -5,7 +5,7 @@ session_start();
 $userID = $_SESSION['userID'];
 $showLog = $_POST['showLog'];
 
-$sql = "SELECT foodLogID, mealName, amountGrams, caloriesGained, logTime FROM foodlog WHERE userID=? AND logDate = ?";
+$sql = "SELECT foodLogID, mealType, mealName, caloriesGained, logTime FROM foodlog WHERE userID=? AND logDate = ?";
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
     header("Location: foodLogWebPage.php?error=sqlerror-select");
