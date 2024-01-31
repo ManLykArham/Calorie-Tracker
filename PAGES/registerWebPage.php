@@ -44,7 +44,6 @@
             </div>
         </div>
     </div>
-    <script src="../JS/checkUserLoggedIn.js"></script>
     <script src="../JS/register.js"></script>
     <script>
         document.getElementById('signupBttn').addEventListener('click', function(e) {
