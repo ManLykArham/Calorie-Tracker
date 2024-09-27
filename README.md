@@ -37,6 +37,14 @@ This project was my first time hooking up a backend database with **PHP and MySQ
 
 ---
 
+## 🎥 Demo
+
+Watch the demo of the Calorie Tracker Web Application:
+
+[Demo Video](https://mycaloriecounterwebapp.online/)
+
+---
+
 ## 🎯 Achievements
 
 Building this project was a major step for me, as it was my **first full-stack web application** where I managed both front-end and back-end operations. I learned how to:
