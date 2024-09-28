@@ -6,6 +6,10 @@ After completing several projects focused on front-end development, I wanted to 
 
 This project was my first time hooking up a backend database with **PHP and MySQL**. The app uses the **API Ninjas API** to calculate how many calories a user has gained (from food) or lost (from exercise). It factors in important details like the weight of the food, duration of exercise, and the user's body weight to provide accurate calorie tracking.
 
+### Current Status Update:
+
+> Currently, the API I was using for food-related data (such as calories and serving size) has transitioned out of free use. As a result, while I am still retrieving most micronutrient data, some key information (like calorie count and serving size) is not currently available. I am actively working on finding a suitable alternative or building a workaround to restore full functionality.
+
 ---
 
 ## ✨ Features
