@@ -45,7 +45,7 @@ This project was my first time hooking up a backend database with **PHP and MySQ
 
 Watch the demo of the Calorie Tracker Web Application:
 
-[Demo Video](https://mycaloriecounterwebapp.online/)
+[Demo Video]([https://mycaloriecounterwebapp.online/](https://www.youtube.com/watch?v=lzcgcCI0Xo4&list=LL))
 
 ---
 
